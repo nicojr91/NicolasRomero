@@ -1,0 +1,5 @@
+C:\Users\nico\code\MCGA\bin\ASF.Entities.dll
+C:\Users\nico\code\MCGA\bin\ASF.Entities.pdb
+C:\Users\nico\code\MCGA\Shared\ASF.Entities\obj\Debug\ASF.Entities.csprojResolveAssemblyReference.cache
+C:\Users\nico\code\MCGA\Shared\ASF.Entities\obj\Debug\ASF.Entities.dll
+C:\Users\nico\code\MCGA\Shared\ASF.Entities\obj\Debug\ASF.Entities.pdb
