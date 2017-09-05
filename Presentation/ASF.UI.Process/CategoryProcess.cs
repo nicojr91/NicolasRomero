@@ -15,6 +15,34 @@ namespace ASF.UI.Process
 {
     public class CategoryProcess : ProcessComponent
     {
+        public Category Add()
+        {
+            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            //return response.Result;
+            return null;
+        }
+
+        public Category Remove()
+        {
+            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            //return response.Result;
+            return null;
+        }
+
+        public Category Edit()
+        {
+            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            //return response.Result;
+            return null;
+        }
+
+        public Category Find()
+        {
+            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            //return response.Result;
+            return null;
+        }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -24,5 +52,7 @@ namespace ASF.UI.Process
             var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
             return response.Result;
         }
+
+        
     }
 }

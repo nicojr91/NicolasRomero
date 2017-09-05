@@ -16,7 +16,7 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         {
             var resp = categoryProcess.SelectList();
 
-            return View();
+            return View(resp);
         }
 
         //
