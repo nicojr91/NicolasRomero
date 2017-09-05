@@ -25,14 +25,14 @@ namespace ASF.Data
             DatabaseFactory.SetDatabaseProviderFactory(new DatabaseProviderFactory(), false);
         }
 
-        protected int PageSize => Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]);
-        //protected int PageSize
-        //{
-        //    get
-        //    {
-        //        return Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]);
-        //    }
-        //}
+        //protected int PageSize => Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]);
+        protected int PageSize
+        {
+            get
+            {
+                return Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]);
+            }
+        }
 
         protected static T GetDataValue<T>(IDataReader dr, string columnName)
         {

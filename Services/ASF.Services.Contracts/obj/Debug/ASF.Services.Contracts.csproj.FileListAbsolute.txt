@@ -1,5 +1,0 @@
-C:\Users\nico\code\MCGA\bin\ASF.Services.Contracts.dll
-C:\Users\nico\code\MCGA\bin\ASF.Services.Contracts.pdb
-C:\Users\nico\code\MCGA\Services\ASF.Services.Contracts\obj\Debug\ASF.Services.Contracts.csprojResolveAssemblyReference.cache
-C:\Users\nico\code\MCGA\Services\ASF.Services.Contracts\obj\Debug\ASF.Services.Contracts.dll
-C:\Users\nico\code\MCGA\Services\ASF.Services.Contracts\obj\Debug\ASF.Services.Contracts.pdb
