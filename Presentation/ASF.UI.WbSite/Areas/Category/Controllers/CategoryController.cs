@@ -23,7 +23,9 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         // GET: /Category/Category/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var resp = categoryProcess.Find(id);
+
+            return View(resp);
         }
 
         //

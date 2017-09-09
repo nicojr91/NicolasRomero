@@ -36,11 +36,13 @@ namespace ASF.UI.Process
             return null;
         }
 
-        public Category Find()
+        public Category Find(int id)
         {
-            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            var parameters = new Dictionary<string, object>();
+            parameters.Add("id", id);
+            var response = HttpGet<FindResponse>("rest/Category/Find", parameters, MediaType.Json);
             //return response.Result;
-            return null;
+            return response.Result;
         }
         
         /// <summary>
