@@ -15,25 +15,25 @@ namespace ASF.UI.Process
 {
     public class CategoryProcess : ProcessComponent
     {
-        public Category Add()
+        public Category Add(Category category)
         {
-            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
-            //return response.Result;
-            return null;
+            var response = HttpPost<Category>("rest/Category/Add", category, MediaType.Json);
+            
+            return response;
         }
 
-        public Category Remove()
+        public Category Remove(Category category)
         {
-            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
-            //return response.Result;
-            return null;
+            var response = HttpPost<Category>("rest/Category/Remove", category, MediaType.Json);
+            
+            return response;
         }
 
-        public Category Edit()
+        public Category Edit(Category category)
         {
-            //var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
-            //return response.Result;
-            return null;
+            var response = HttpPost<Category>("rest/Category/Edit", category, MediaType.Json);
+            
+            return response;
         }
 
         public Category Find(int id)

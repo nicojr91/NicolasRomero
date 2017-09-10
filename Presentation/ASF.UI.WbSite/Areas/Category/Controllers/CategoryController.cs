@@ -40,15 +40,23 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            // TODO: Add insert logic here
+            var name = collection["Name"];
+
+            var newCateogry = new ASF.Entities.Category();
+            newCateogry.Name = name;
+            newCateogry.ChangedOn = DateTime.Now;
+            newCateogry.CreatedOn = DateTime.Now;
             try
             {
-                // TODO: Add insert logic here
+                newCateogry = categoryProcess.Add(newCateogry);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                throw new Exception(e.Message);
+                //return View();
             }
         }
 
@@ -56,7 +64,9 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         // GET: /Category/Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var category = categoryProcess.Find(id);
+
+            return View(category);
         }
 
         //
@@ -66,13 +76,18 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var category = categoryProcess.Find(id);
+                category.Name = collection["Name"];
+                category.ChangedOn = DateTime.Now;
+
+                categoryProcess.Edit(category);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                throw new Exception(e.Message);
+                //return View();
             }
         }
 
@@ -80,7 +95,21 @@ namespace ASF.UI.WbSite.Areas.Category.Controllers
         // GET: /Category/Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try 
+            {
+                var category = new ASF.Entities.Category();
+                category.Id = id;
+
+                categoryProcess.Remove(category);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+
+            return RedirectToAction("Index");
         }
 
         //

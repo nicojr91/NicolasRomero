@@ -405,6 +405,9 @@
     <Content Include="Areas\Category\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Category\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Category\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Category\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Category\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Category\Views\Category\Details.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
