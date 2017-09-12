@@ -24,9 +24,9 @@ namespace ASF.UI.Process
 
         public Category Remove(Category category)
         {
-            var response = HttpPost<Category>("rest/Category/Remove", category, MediaType.Json);
+            var response = HttpGet<FindResponse>("rest/Category/Remove/"+category.Id, new Dictionary<string, object>(), MediaType.Json);
             
-            return response;
+            return null;
         }
 
         public Category Edit(Category category)

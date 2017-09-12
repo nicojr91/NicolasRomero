@@ -67,7 +67,7 @@ namespace ASF.Services.Http
             }
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("Edit")]
         public void Edit(Category category)
         {
