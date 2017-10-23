@@ -16,10 +16,10 @@ namespace ASF.Services.Contracts
 {
     
     [DataContract]
-    public class AllResponse
+    public class AllResponse<T>
     {
         [DataMember]
-        public List<Category> Result { get; set; }
+        public List<T> Result { get; set; }
     }
 }
 

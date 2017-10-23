@@ -24,7 +24,7 @@ namespace ASF.UI.Process
 
         public Category Remove(Category category)
         {
-            var response = HttpGet<FindResponse>("rest/Category/Remove/"+category.Id, new Dictionary<string, object>(), MediaType.Json);
+            var response = HttpGet<FindResponse<Category>>("rest/Category/Remove/"+category.Id, new Dictionary<string, object>(), MediaType.Json);
             
             return null;
         }
@@ -40,7 +40,7 @@ namespace ASF.UI.Process
         {
             var parameters = new Dictionary<string, object>();
             parameters.Add("id", id);
-            var response = HttpGet<FindResponse>("rest/Category/Find", parameters, MediaType.Json);
+            var response = HttpGet<FindResponse<Category>>("rest/Category/Find", parameters, MediaType.Json);
             //return response.Result;
             return response.Result;
         }
@@ -51,7 +51,7 @@ namespace ASF.UI.Process
         /// <returns></returns>
         public List<Category> SelectList()
         {
-            var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
+            var response = HttpGet<AllResponse<Category>>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
             return response.Result;
         }
 

@@ -16,10 +16,10 @@ namespace ASF.Services.Contracts
 {
     
     [DataContract]
-    public class FindResponse
+    public class FindResponse<T>
     {
         [DataMember]
-        public Category Result { get; set; }
+        public T Result { get; set; }
     }
 }
 
