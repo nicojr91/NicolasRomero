@@ -52,9 +52,12 @@
     <Compile Include="CategoryDAC.cs" />
     <Compile Include="CountryDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
+    <Compile Include="DealerDAC.cs" />
+    <Compile Include="ProductDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

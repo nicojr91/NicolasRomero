@@ -241,6 +241,12 @@
   <ItemGroup>
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Country\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Country\CountryAreaRegistration.cs" />
+    <Compile Include="Areas\Dealer\Controllers\DealerController.cs" />
+    <Compile Include="Areas\Dealer\DealerAreaRegistration.cs" />
+    <Compile Include="Areas\Product\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
     <Compile Include="Constants\ExtensionMethods\HtmlLabelExtensions.cs" />
     <Compile Include="Constants\ExtensionMethods\TypeFactory.cs" />
     <Compile Include="Constants\ExtensionMethods\WebGridExtensions.cs" />
@@ -408,6 +414,24 @@
     <Content Include="Areas\Category\Views\Category\Create.cshtml" />
     <Content Include="Areas\Category\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Category\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Country\Views\web.config" />
+    <Content Include="Areas\Dealer\Views\web.config" />
+    <Content Include="Areas\Country\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Country\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Country\Views\Index.cshtml" />
+    <Content Include="Areas\Country\Views\Create.cshtml" />
+    <Content Include="Areas\Country\Views\Details.cshtml" />
+    <Content Include="Areas\Dealer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Dealer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Dealer\Views\Index.cshtml" />
+    <Content Include="Areas\Dealer\Views\Create.cshtml" />
+    <Content Include="Areas\Dealer\Views\Details.cshtml" />
+    <Content Include="Areas\Product\Views\web.config" />
+    <Content Include="Areas\Product\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Product\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Product\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Product\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Product\Views\Product\Details.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -556,6 +580,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Category\Models\" />
+    <Folder Include="Areas\Country\Models\" />
+    <Folder Include="Areas\Country\Views\Country\" />
+    <Folder Include="Areas\Dealer\Models\" />
+    <Folder Include="Areas\Dealer\Views\Dealer\" />
+    <Folder Include="Areas\Product\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

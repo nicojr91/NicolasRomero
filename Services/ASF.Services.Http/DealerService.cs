@@ -13,7 +13,7 @@ using System.Web.Http;
 namespace ASF.Services.Http
 {
     [RoutePrefix("rest/Dealer")]
-    public class DealerService
+    public class DealerService : ApiController
     {
         [HttpPost]
         [Route("Add")]

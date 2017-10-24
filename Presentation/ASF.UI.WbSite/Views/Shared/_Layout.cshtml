@@ -168,31 +168,36 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-users"></span> About</a></li>
-                    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetContact)"><span aria-hidden="true" class="fa fa-phone"></span> Contact</a></li>
-                    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>
-                    @if (HttpContext.Current.IsDebuggingEnabled)
-                    {
-                        // if <compilation debug="true"> is set in Web.config.
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><span aria-hidden="true" class="fa fa-cogs"></span> Debug <span aria-hidden="true" class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="/@ConfigurationManager.AppSettings["elmah.mvc.route"]"><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</a></li>
-                                <li><a href="/glimpse.axd"><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</a></li>
-                                <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
-                            </ul>
-                        </li>
-                    }
+
+                    <li>@Html.ActionLink("Category", "Index", "Category", new { Area = "Category" }, new { })</li>
+                    <li>@Html.ActionLink("Country", "Index", "Country", new { Area = "Country" }, new { })</li>
+                    <li>@Html.ActionLink("Dealer", "Index", "Dealer", new { Area = "Dealer" }, new { })</li>
+                    <li>@Html.ActionLink("Product", "Index", "Product", new { Area = "Product" }, new { })</li>
+                    @*<li><a href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-users"></span> About</a></li>
+    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetContact)"><span aria-hidden="true" class="fa fa-phone"></span> Contact</a></li>
+    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>*@
+                    @*@if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            // if <compilation debug="true"> is set in Web.config.
+            <li class="dropdown">
+                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><span aria-hidden="true" class="fa fa-cogs"></span> Debug <span aria-hidden="true" class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="/@ConfigurationManager.AppSettings["elmah.mvc.route"]"><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</a></li>
+                    <li><a href="/glimpse.axd"><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</a></li>
+                    <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-                @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
-                    <div class="input-group">
-                        <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
-                        <div class="input-group-btn">
-                            <button aria-label="Search" class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
-                        </div>
-                    </div>
-                </form>*@
+            </li>
+        }*@
+    </ul>
+    @Html.Partial("_LoginPartial")
+    @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
+        <div class="input-group">
+            <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
+            <div class="input-group-btn">
+                <button aria-label="Search" class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
+            </div>
+        </div>
+    </form>*@
             </div>
         </div>
     </nav>

@@ -12,17 +12,17 @@ using System.Web.Http;
 
 namespace ASF.Services.Http
 {
-    [RoutePrefix("rest/Country")]
-    public class CountryService : ApiController
+    [RoutePrefix("rest/Product")]
+    public class ProductService : ApiController
     {
         [HttpPost]
         [Route("Add")]
-        public Country Add(Country category)
+        public Product Add(Product product)
         {
             try
             {
-                var bc = new CountryBusiness();
-                return bc.Add(category);
+                var bc = new ProductBusiness();
+                return bc.Add(product);
             }
             catch (Exception ex)
             {
@@ -38,12 +38,12 @@ namespace ASF.Services.Http
 
         [HttpGet]
         [Route("All")]
-        public AllResponse<Country> All()
+        public AllResponse<Product> All()
         {
             try
             {
-                var response = new AllResponse<Country>();
-                var bc = new CountryBusiness();
+                var response = new AllResponse<Product>();
+                var bc = new ProductBusiness();
                 response.Result = bc.All();
                 return response;
             }
@@ -61,12 +61,12 @@ namespace ASF.Services.Http
 
         [HttpPost]
         [Route("Edit")]
-        public void Edit(Category category)
+        public void Edit(Product product)
         {
             try
             {
-                var bc = new CategoryBusiness();
-                bc.Edit(category);
+                var bc = new ProductBusiness();
+                bc.Edit(product);
             }
             catch (Exception ex)
             {
@@ -82,12 +82,12 @@ namespace ASF.Services.Http
 
         [HttpGet]
         [Route("Find")]
-        public FindResponse<Country> Find(int id)
+        public FindResponse<Product> Find(int id)
         {
             try
             {
-                var response = new FindResponse<Country>();
-                var bc = new CountryBusiness();
+                var response = new FindResponse<Product>();
+                var bc = new ProductBusiness();
                 response.Result = bc.Find(id);
                 return response;
             }
@@ -109,7 +109,7 @@ namespace ASF.Services.Http
         {
             try
             {
-                var bc = new CategoryBusiness();
+                var bc = new DealerBusiness();
                 bc.Remove(id);
             }
             catch (Exception ex)
