@@ -239,14 +239,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
-    <Compile Include="Areas\Category\Controllers\CategoryController.cs" />
-    <Compile Include="Areas\Country\Controllers\CountryController.cs" />
-    <Compile Include="Areas\Country\CountryAreaRegistration.cs" />
-    <Compile Include="Areas\Dealer\Controllers\DealerController.cs" />
-    <Compile Include="Areas\Dealer\DealerAreaRegistration.cs" />
-    <Compile Include="Areas\Product\Controllers\ProductController.cs" />
-    <Compile Include="Areas\Product\ProductAreaRegistration.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Constants\ExtensionMethods\HtmlLabelExtensions.cs" />
     <Compile Include="Constants\ExtensionMethods\TypeFactory.cs" />
     <Compile Include="Constants\ExtensionMethods\WebGridExtensions.cs" />
@@ -265,6 +260,7 @@
     <Compile Include="Constants\HomeController\HomeControllerAction.cs" />
     <Compile Include="Constants\HomeController\HomeControllerRoute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DealerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -405,33 +401,59 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Areas\Category\Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Areas\Category\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Category\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Category\Views\Category\Index.cshtml" />
-    <Content Include="Areas\Category\Views\Category\Create.cshtml" />
-    <Content Include="Areas\Category\Views\Category\Edit.cshtml" />
-    <Content Include="Areas\Category\Views\Category\Details.cshtml" />
-    <Content Include="Areas\Country\Views\web.config" />
-    <Content Include="Areas\Dealer\Views\web.config" />
-    <Content Include="Areas\Country\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Country\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Country\Views\Index.cshtml" />
-    <Content Include="Areas\Country\Views\Create.cshtml" />
-    <Content Include="Areas\Country\Views\Details.cshtml" />
-    <Content Include="Areas\Dealer\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Dealer\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Dealer\Views\Index.cshtml" />
-    <Content Include="Areas\Dealer\Views\Create.cshtml" />
-    <Content Include="Areas\Dealer\Views\Details.cshtml" />
-    <Content Include="Areas\Product\Views\web.config" />
-    <Content Include="Areas\Product\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Product\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Product\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Product\Views\Product\Create.cshtml" />
-    <Content Include="Areas\Product\Views\Product\Details.cshtml" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Details.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -576,15 +598,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Dealer\Create.cshtml" />
+    <Content Include="Views\Dealer\Details.cshtml" />
+    <Content Include="Views\Dealer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Category\Models\" />
-    <Folder Include="Areas\Country\Models\" />
-    <Folder Include="Areas\Country\Views\Country\" />
-    <Folder Include="Areas\Dealer\Models\" />
-    <Folder Include="Areas\Dealer\Views\Dealer\" />
-    <Folder Include="Areas\Product\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
