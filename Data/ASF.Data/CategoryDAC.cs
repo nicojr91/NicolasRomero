@@ -55,8 +55,6 @@ namespace ASF.Data
         {
             const string sqlStatement = "UPDATE dbo.Category " +
                 "SET [Name]=@Name, " +
-                    "[CreatedOn]=@CreatedOn, " +
-                    "[CreatedBy]=@CreatedBy, " +
                     "[ChangedOn]=@ChangedOn, " +
                     "[ChangedBy]=@ChangedBy " +
                 "WHERE [Id]=@Id ";

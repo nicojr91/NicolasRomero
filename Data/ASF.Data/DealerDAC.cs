@@ -113,7 +113,8 @@ namespace ASF.Data
         public List<Dealer> Select()
         {
             // WARNING! Performance
-            const string sqlStatement = "SELECT [Id], [Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] FROM dbo.Category ";
+            const string sqlStatement = "SELECT [Id], [FirstName], [LastName], [CategoryId], [CountryId], [Description], [TotalProducts], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] "
+                + " FROM dbo.Dealer ";
 
             var result = new List<Dealer>();
             var db = DatabaseFactory.CreateDatabase(ConnectionName);

@@ -9,6 +9,8 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
 {
     public class DealerController : Controller
     {
+        private static CategoryProcess categoryProcess = new CategoryProcess();
+        private static CountryProcess countryProcess = new CountryProcess();
         private static DealerProcess dealerProcess = new DealerProcess();
 
         //
@@ -31,6 +33,12 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Create
         public ActionResult Create()
         {
+            var listCategories = categoryProcess.SelectList();
+            var listCountry = categoryProcess.SelectList();
+
+            ViewBag.categories = listCategories;
+            //ViewData["country"] = listCountry;
+
             return View();
         }
 

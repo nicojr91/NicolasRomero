@@ -18,7 +18,7 @@ namespace ASF.Data
         /// <returns></returns>
         public Country Create(Country country)
         {
-            const string sqlStatement = "INSERT INTO dbo.Category ([Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
+            const string sqlStatement = "INSERT INTO dbo.Country ([Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
                 "VALUES(@Name, @CreatedOn, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
 
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
@@ -42,10 +42,8 @@ namespace ASF.Data
         /// <param name="country"></param>
         public void UpdateById(Country country)
         {
-            const string sqlStatement = "UPDATE dbo.Category " +
+            const string sqlStatement = "UPDATE dbo.Country " +
                 "SET [Name]=@Name, " +
-                    "[CreatedOn]=@CreatedOn, " +
-                    "[CreatedBy]=@CreatedBy, " +
                     "[ChangedOn]=@ChangedOn, " +
                     "[ChangedBy]=@ChangedBy " +
                 "WHERE [Id]=@Id ";
@@ -70,7 +68,7 @@ namespace ASF.Data
         /// <param name="id"></param>
         public void DeleteById(int id)
         {
-            const string sqlStatement = "DELETE dbo.Category WHERE [Id]=@Id ";
+            const string sqlStatement = "DELETE dbo.Country WHERE [Id]=@Id ";
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
@@ -87,7 +85,7 @@ namespace ASF.Data
         public Country SelectById(int id)
         {
             const string sqlStatement = "SELECT [Id], [Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] " +
-                "FROM dbo.Category WHERE [Id]=@Id ";
+                "FROM dbo.Country WHERE [Id]=@Id ";
 
             Country country = null;
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
@@ -110,7 +108,7 @@ namespace ASF.Data
         public List<Country> Select()
         {
             // WARNING! Performance
-            const string sqlStatement = "SELECT [Id], [Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] FROM dbo.Category ";
+            const string sqlStatement = "SELECT [Id], [Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] FROM dbo.Country ";
 
             var result = new List<Country>();
             var db = DatabaseFactory.CreateDatabase(ConnectionName);

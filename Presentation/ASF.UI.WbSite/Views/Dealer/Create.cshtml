@@ -34,17 +34,35 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryId, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CategoryId)
-                @Html.ValidationMessageFor(model => model.CategoryId)
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" disabled class="form-control" placeholder="Category">
+                    <input type="hidden" name="categoryId" class="form-control" placeholder="Category">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalCategories">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+                @*@Html.EditorFor(model => model.CategoryId)
+                @Html.ValidationMessageFor(model => model.CategoryId)*@
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CountryId, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CountryId)
-                @Html.ValidationMessageFor(model => model.CountryId)
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" disabled class="form-control" placeholder="Country">
+                    <input type="hidden" name="countyId" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalCountry">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+                @*@Html.EditorFor(model => model.CategoryId)
+                @Html.ValidationMessageFor(model => model.CategoryId)*@
             </div>
         </div>
 
@@ -56,15 +74,15 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.TotalProducts, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TotalProducts)
                 @Html.ValidationMessageFor(model => model.TotalProducts)
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Rowid, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Rowid)
@@ -102,7 +120,7 @@
                 @Html.EditorFor(model => model.ChangedBy)
                 @Html.ValidationMessageFor(model => model.ChangedBy)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -112,10 +130,68 @@
     </div>
 }
 
+<div class="modal fade" id="ModalCategories" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Categories</h4>
+            </div>
+            <div class="modal-body">
+                @if (@ViewBag.categories.Count > 0)
+                {
+                    foreach(var category in @ViewBag.categories)
+                    {
+                        <p>@category.Name</p>
+                    }
+                }
+                else
+                {
+                    <div>There are no categories.</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalCountry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Country</h4>
+            </div>
+            <div class="modal-body">
+                @if (@ViewBag.categories.Count > 0)
+                {
+                    foreach (var category in @ViewBag.categories)
+                    {
+                        <p>@category.Name</p>
+                    }
+                }
+                else
+                {
+                    <div>There are no categories.</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }
