@@ -36,8 +36,8 @@
             @Html.LabelFor(model => model.CategoryId, new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 <div class="input-group">
-                    <input type="text" disabled class="form-control" placeholder="Category">
-                    <input type="hidden" name="categoryId" class="form-control" placeholder="Category">
+                    <input id="categoryText" type="text" disabled class="form-control" placeholder="Category">
+                    <input id="categoryId" type="hidden" name="categoryId" class="form-control" placeholder="Category">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalCategories">
                             <span class="glyphicon glyphicon-search"></span>
@@ -138,15 +138,19 @@
                 <h4 class="modal-title" id="myModalLabel">Categories</h4>
             </div>
             <div class="modal-body">
-                @if (@ViewBag.categories.Count > 0)
-                {
-                    foreach(var category in @ViewBag.categories)
-                    {
-                        <p>@category.Name</p>
-                    }
-                }
-                else
-                {
+                @if (@ViewBag.categories.Count > 0) {
+                    <div class="row">
+                        @foreach (var category in @ViewBag.categories) {
+                            <div class="col-md-4">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="category" value="@category.Id" />@category.Name
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                } else {
                     <div>There are no categories.</div>
                 }
             </div>
@@ -180,7 +184,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary save">Save changes</button>
             </div>
         </div>
     </div>
@@ -193,5 +197,15 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    
+    <script type="text/javascript">
+        $(function () {
 
+            $("#ModalCategories").on("click", ".save", function () {
+                $("#categoryId").val($("[name='category']:checked").val());
+                $("#categoryText").text($("[name='category']:checked").parent().text());
+            });
+
+        });
+    </script>
 }
