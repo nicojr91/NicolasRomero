@@ -26,7 +26,9 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var resp = categoryProcess.Find(id);
+
+            return View(resp);
         }
 
         //
@@ -34,10 +36,10 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         public ActionResult Create()
         {
             var listCategories = categoryProcess.SelectList();
-            var listCountry = categoryProcess.SelectList();
+            var listCountry = countryProcess.SelectList();
 
             ViewBag.categories = listCategories;
-            //ViewData["country"] = listCountry;
+            ViewBag.countries = listCountry;
 
             return View();
         }
@@ -63,6 +65,8 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Edit/5
         public ActionResult Edit(int id)
         {
+            var category = categoryProcess.Find(id);
+
             return View();
         }
 
@@ -73,13 +77,18 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var category = categoryProcess.Find(id);
+                category.Name = collection["Name"];
+                category.ChangedOn = DateTime.Now;
+
+                categoryProcess.Edit(category);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                throw new Exception(e.Message);
+                //return View();
             }
         }
 
@@ -87,7 +96,21 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                var category = new ASF.Entities.Category();
+                category.Id = id;
+
+                categoryProcess.Remove(category);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+
+            return RedirectToAction("Index");
         }
 
         //
@@ -105,6 +128,14 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public JsonResult GetCountries()
+        {
+            var resp = categoryProcess.SelectList();
+
+            return Json(resp, JsonRequestBehavior.AllowGet);
         }
     }
 }

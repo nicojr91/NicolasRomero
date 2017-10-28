@@ -1,0 +1,111 @@
+﻿@* @model IEnumerable<asf.entities.product> *@
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Catalog</h2>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+            <div class="item">
+                <a href="#">
+                    <div class="image">
+                        <img src="http://picture-cdn.wheretoget.it/8yl60v-i.jpg" style="width: 200px; height:200px" />
+                    </div>
+                    <div class="span"></div>
+                    <div class="detail">
+                        <h3>precio</h3>
+                        <h4>titulo</h4>
+                        <div class="starts"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="item">
+                <div class="image">
+                    <img src="http://picture-cdn.wheretoget.it/8yl60v-i.jpg" style="width: 200px; height:200px" />
+                </div>
+                <div class="span"></div>
+                <div class="detail">
+                    <h3>precio</h3>
+                    <h4>titulo</h4>
+                    <div class="starts"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="item">
+                <div class="image">
+                    <img src="http://picture-cdn.wheretoget.it/8yl60v-i.jpg" style="width: 200px; height:200px" />
+                </div>
+                <div class="span"></div>
+                <div class="detail">
+                    <h3>precio</h3>
+                    <h4>titulo</h4>
+                    <div class="starts"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="item">
+                <div class="image">
+                    <img src="http://picture-cdn.wheretoget.it/8yl60v-i.jpg" style="width: 200px; height:200px" />
+                </div>
+                <div class="span"></div>
+                <div class="detail">
+                    <h3>precio</h3>
+                    <h4>titulo</h4>
+                    <div class="starts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DealerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantitySold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgStars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rowid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }*@

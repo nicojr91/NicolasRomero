@@ -24,7 +24,9 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
         // GET: /Country/Country/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var resp = countryProcess.Find(id);
+
+            return View(resp);
         }
 
         //
@@ -39,9 +41,15 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            var name = collection["Name"];
+
+            var newCountry = new ASF.Entities.Country();
+            newCountry.Name = name;
+            newCountry.ChangedOn = DateTime.Now;
+            newCountry.CreatedOn = DateTime.Now;
             try
             {
-                // TODO: Add insert logic here
+                newCountry = countryProcess.Add(newCountry);
 
                 return RedirectToAction("Index");
             }
@@ -55,7 +63,9 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
         // GET: /Country/Country/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var category = countryProcess.Find(id);
+
+            return View(category);
         }
 
         //
@@ -65,7 +75,11 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var category = countryProcess.Find(id);
+                category.Name = collection["Name"];
+                category.ChangedOn = DateTime.Now;
+
+                countryProcess.Edit(category);
 
                 return RedirectToAction("Index");
             }
@@ -79,7 +93,21 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
         // GET: /Country/Country/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                var category = new ASF.Entities.Country();
+                category.Id = id;
+
+                countryProcess.Remove(category);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+
+            return RedirectToAction("Index");
         }
 
         //
@@ -97,6 +125,14 @@ namespace ASF.UI.WbSite.Areas.Country.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public JsonResult GetCountries()
+        {
+            var resp = countryProcess.SelectList();
+
+            return Json(resp, JsonRequestBehavior.AllowGet);
         }
     }
 }

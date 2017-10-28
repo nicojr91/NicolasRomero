@@ -18,16 +18,16 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName)
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName)
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName)
             </div>
         </div>
@@ -68,8 +68,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
@@ -156,7 +156,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary save">Save changes</button>
             </div>
         </div>
     </div>
@@ -170,12 +170,20 @@
                 <h4 class="modal-title" id="myModalLabel">Country</h4>
             </div>
             <div class="modal-body">
-                @if (@ViewBag.categories.Count > 0)
+                @if (@ViewBag.countries.Count > 0)
                 {
-                    foreach (var category in @ViewBag.categories)
-                    {
-                        <p>@category.Name</p>
-                    }
+                    <div class="row">
+                        @foreach (var country in @ViewBag.countries)
+                        {
+                            <div class="col-md-4">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="category" value="@country.Id" />@country.Name
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 }
                 else
                 {
@@ -198,10 +206,10 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     
-    <script type="text/javascript">
+    <script>
         $(function () {
 
-            $("#ModalCategories").on("click", ".save", function () {
+            $(".save", "#ModalCategories").on("click", function () {
                 $("#categoryId").val($("[name='category']:checked").val());
                 $("#categoryText").text($("[name='category']:checked").parent().text());
             });
