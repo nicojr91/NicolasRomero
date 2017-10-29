@@ -97,9 +97,10 @@ namespace ASF.UI.WbSite.Controllers
         public ActionResult GetCart(string json)
         {
 
-            var request = Request.Params;
+            var request = Request.QueryString.AllKeys;
+            var asd = request[0];
 
-            return View();
+            return Json( new { foo="bar", baz="Blech" }, JsonRequestBehavior.AllowGet);
         }
 
     }

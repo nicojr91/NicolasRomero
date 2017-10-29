@@ -2,7 +2,7 @@
 
     $('#ModalCart').on('show.bs.modal', function (e) {
         var string = $.cookie("newbuy");
-        var json = {};
+        var json = { "cart" : [] };
 
         if (string === undefined) {
 
@@ -11,7 +11,7 @@
             
             for (var x in string) {
                 var pq = string[x].split(',');
-                json[x] = { "product": pq[0], "quantity": pq[1] };
+                json.cart[x] = { "product": pq[0], "quantity": pq[1] };
             }
         }
         $.get("http://localhost:24005/cart/getcart", json, function (data) {
