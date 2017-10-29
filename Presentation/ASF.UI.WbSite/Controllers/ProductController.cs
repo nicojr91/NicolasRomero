@@ -41,7 +41,22 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var file = Request.Files[0];
+
+                string imgName = System.IO.Path.GetFileName(file.FileName);
+                string fisicalPath = Server.MapPath("~/images/" + imgName);
+                file.SaveAs(fisicalPath);
+
+                var product = new ASF.Entities.Product();
+                product.Title = collection["title"];
+                product.Description = collection["description"];
+                product.DealerId = 2;//Int32.Parse(collection["dealerId"])
+                product.Price = double.Parse(collection["price"]);
+                product.Image = imgName;
+                product.CreatedOn = DateTime.Now;
+                product.ChangedOn = DateTime.Now;
+
+                productProcess.Add(product);
 
                 return RedirectToAction("Index");
             }

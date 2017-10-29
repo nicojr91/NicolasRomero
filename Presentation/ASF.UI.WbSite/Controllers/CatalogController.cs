@@ -15,9 +15,9 @@ namespace ASF.UI.WbSite.Controllers
         // GET: /Catalog/
         public ActionResult Index()
         {
-            var products = productProcess.SelectList();
+            ViewBag.products = productProcess.SelectList();
 
-            return View(products);
+            return View();
         }
 
         //

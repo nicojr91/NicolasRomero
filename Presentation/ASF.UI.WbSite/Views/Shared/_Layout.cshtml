@@ -148,7 +148,7 @@
     @* OpenSearch - (See http://www.hanselman.com/blog/CommentView.aspx?guid=50cc95b1-c043-451f-9bc2-696dc564766d and http://www.opensearch.org) *@
     <link href="@Url.RouteUrl(HomeControllerRoute.GetOpenSearchXml).TrimEnd('/')" rel="search" title="Architecture Solutions Foundation Search" type="application/opensearchdescription+xml">
 
-
+    <link href="~/Content/style.css" rel="stylesheet" />
     @* You can use the head section to render additional meta tags. *@
     @RenderSection("head", required: false)
 </head>
@@ -175,31 +175,8 @@
                     <li>@Html.ActionLink("Dealer", "Index", "Dealer")</li>
                     <li>@Html.ActionLink("Product", "Index", "Product")</li>
                     <li>@Html.ActionLink("Catalog", "Index", "Catalog")</li>
-                    @*<li><a href="@Url.RouteUrl(HomeControllerRoute.GetAbout)"><span aria-hidden="true" class="fa fa-users"></span> About</a></li>
-    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetContact)"><span aria-hidden="true" class="fa fa-phone"></span> Contact</a></li>
-    <li><a href="@Url.RouteUrl(HomeControllerRoute.GetFeed)"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>*@
-                    @*@if (HttpContext.Current.IsDebuggingEnabled)
-        {
-            // if <compilation debug="true"> is set in Web.config.
-            <li class="dropdown">
-                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><span aria-hidden="true" class="fa fa-cogs"></span> Debug <span aria-hidden="true" class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/@ConfigurationManager.AppSettings["elmah.mvc.route"]"><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</a></li>
-                    <li><a href="/glimpse.axd"><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</a></li>
-                    <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
                 </ul>
-            </li>
-        }*@
-    </ul>
-    @Html.Partial("_LoginPartial")
-    @*<form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
-        <div class="input-group">
-            <input aria-label="Search" class="form-control" maxlength="2048" name="query" placeholder="Search" title="Search" type="text">
-            <div class="input-group-btn">
-                <button aria-label="Search" class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
-            </div>
-        </div>
-    </form>*@
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -215,13 +192,16 @@
         <footer role="contentinfo">
             <p>&copy; @DateTime.Now.Year - @Application.Name</p>
         </footer>
+        @Html.Partial("_ModalCart")
     </div>
-
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryvalunobtrusive")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/site")
+    <script src="~/Scripts/jquery.cookie-1.4.1.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

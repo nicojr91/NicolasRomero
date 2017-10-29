@@ -18,6 +18,11 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a id="show-cart" data-toggle="modal" data-target="#ModalCart">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </a>
+        </li>
         <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>

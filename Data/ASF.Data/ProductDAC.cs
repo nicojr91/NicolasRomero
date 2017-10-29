@@ -22,14 +22,14 @@ namespace ASF.Data
                 db.AddInParameter(cmd, "@Title", DbType.String, product.Title);
                 db.AddInParameter(cmd, "@Description", DbType.String, product.Description);
                 db.AddInParameter(cmd, "@DealerId", DbType.Int32, product.DealerId);
-                db.AddInParameter(cmd, "@Image", DbType.Int32, product.Image);
-                db.AddInParameter(cmd, "@Price", DbType.String, product.Price);
+                db.AddInParameter(cmd, "@Image", DbType.String, product.Image);
+                db.AddInParameter(cmd, "@Price", DbType.Double, product.Price);
                 db.AddInParameter(cmd, "@QuantitySold", DbType.Int32, product.QuantitySold);
-                db.AddInParameter(cmd, "@AvgStars", DbType.Int32, product.AvgStars);
+                db.AddInParameter(cmd, "@AvgStars", DbType.Double, product.AvgStars);
                 db.AddInParameter(cmd, "@Rowid", DbType.Guid, product.Rowid);
-                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, product.CreatedOn);
+                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime, product.CreatedOn);
                 db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, product.CreatedBy);
-                db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, product.ChangedOn);
+                db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime, product.ChangedOn);
                 db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, product.ChangedBy);
                 // Obtener el valor de la primary key.
                 product.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
@@ -143,9 +143,9 @@ namespace ASF.Data
                 Description = GetDataValue<string>(dr, "Description"),
                 DealerId = GetDataValue<int>(dr, "DealerId"),
                 Image = GetDataValue<string>(dr, "Image"),
-                Price = GetDataValue<float>(dr, "Price"),
+                Price = GetDataValue<double>(dr, "Price"),
                 QuantitySold = GetDataValue<int>(dr, "QuantitySold"),
-                AvgStars = GetDataValue<float>(dr, "AvgStars"),
+                AvgStars = GetDataValue<double>(dr, "AvgStars"),
                 Rowid = GetDataValue<Guid>(dr, "Rowid"),
                 CreatedOn = GetDataValue<DateTime>(dr, "CreatedOn"),
                 CreatedBy = GetDataValue<int>(dr, "CreatedBy"),
