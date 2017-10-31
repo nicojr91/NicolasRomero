@@ -84,10 +84,10 @@ namespace ASF.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Product SelectById(int id)
+        public Product SelectById(object id)
         {
-            const string sqlStatement = "SELECT [Id], [FirstName], [LastName], [CategoryId], [CountryId], [Description], [TotalProducts], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] " +
-                "FROM dbo.Dealer WHERE [Id]=@Id ";
+            const string sqlStatement = "SELECT [Id], [Title], [Description], [DealerId], [Image], [Price], [QuantitySold], [AvgStars], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]" +
+                "FROM dbo.Product WHERE [Id]=@Id ";
 
             Product dealer = null;
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
@@ -96,7 +96,7 @@ namespace ASF.Data
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
                 using (var dr = db.ExecuteReader(cmd))
                 {
-                    if (dr.Read()) dealer = LoadCategory(dr);
+                    if (dr.Read()) dealer = LoadProduct(dr);
                 }
             }
 
@@ -120,7 +120,7 @@ namespace ASF.Data
                 {
                     while (dr.Read())
                     {
-                        var dealer = LoadCategory(dr); // Mapper
+                        var dealer = LoadProduct(dr); // Mapper
                         result.Add(dealer);
                     }
                 }
@@ -134,9 +134,9 @@ namespace ASF.Data
         /// </summary>
         /// <param name="dr">Objeto DataReader.</param>
         /// <returns>Retorna un objeto Categoria.</returns>		
-        private static Product LoadCategory(IDataReader dr)
+        private static Product LoadProduct(IDataReader dr)
         {
-            var dealer = new Product
+            var product = new Product
             {
                 Id = GetDataValue<int>(dr, "Id"),
                 Title = GetDataValue<string>(dr, "Title"),
@@ -153,7 +153,7 @@ namespace ASF.Data
                 ChangedBy = GetDataValue<int>(dr, "ChangedBy")
             };
 
-            return dealer;
+            return product;
         }
     }
 }

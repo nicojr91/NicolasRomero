@@ -1,8 +1,10 @@
-﻿@foreach() {
-    <tr>
-        <th>Product</th>
-        <th><input type="text" /></th>
-        <th></th>
-        <th><span class="glyphicon glyphicon-remove"></span></th>
+﻿@{ int index = 0; }
+@foreach(var item in @ViewBag.listItems) {
+    <tr data-id="@index">
+        <td data-id="@item.ProductId">@ViewBag.products[item.ProductId]</td>
+        <td><input type="text" value="@item.Quantity" /></td>
+        <td>$@item.Price</td>
+        <td><a class="remove-item"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>
+    index++;
 }
