@@ -19,9 +19,12 @@ namespace ASF.UI.WbSite.Controllers
     using Boilerplate.Web.Mvc.Filters;
     using ASF.UI.WbSite.Constants;
     using ASF.UI.WbSite.Services;
+    using ASF.UI.Process;
 
     public class HomeController : Controller
     {
+        private ProductProcess productProcess = new ProductProcess();
+
         #region Fields
 
         private readonly IBrowserConfigService browserConfigService;
@@ -59,6 +62,7 @@ namespace ASF.UI.WbSite.Controllers
         [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
+            ViewBag.products = productProcess.SelectList();
             // ***** sender email credentials (gamil) *****/
             //var msg = new IdentityMessage
             //{

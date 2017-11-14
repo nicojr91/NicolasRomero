@@ -2,7 +2,7 @@
 @foreach(var item in @ViewBag.listItems) {
     <tr data-id="@index">
         <td data-id="@item.ProductId">@ViewBag.products[item.ProductId]</td>
-        <td><input type="text" value="@item.Quantity" /></td>
+        <td><input type="text" class="quantity" value="@item.Quantity" /></td>
         <td>$@item.Price</td>
         <td><a class="remove-item"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>

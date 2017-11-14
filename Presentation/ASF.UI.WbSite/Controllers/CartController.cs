@@ -107,7 +107,7 @@ namespace ASF.UI.WbSite.Controllers
             var products = new Dictionary<int, string>();
             var listItems = new List<CartItem>();
 
-            foreach (var i in result2)
+            foreach (var i in result2.items)
             {
                 var item = new CartItem();
                 var product = pprocess.Find((int)i.product);
