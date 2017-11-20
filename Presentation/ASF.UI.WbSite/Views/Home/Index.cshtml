@@ -2,29 +2,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Catalog</h2>
+<div class="new_arrivals_agile_w3ls_info">
+    <div class="container">
+        <h3 class="wthree_text_info">New <span>Arrivals</span></h3>
+        <div id="horizontalTab">
+            <div class="resp-tabs-container">
+                <!--/tab_one-->
+                <div class="tab1">
+                    @foreach (var item in @ViewBag.products)
+                    {
+                        <div class="col-md-3 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <img src="../images/@item.Image" alt="" class="pro-image-front" />
+                                    <img src="../images/@item.Image" alt="" class="pro-image-back" />
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">New</span>
 
-<div class="row">
-    @foreach (var item in @ViewBag.products)
-    {
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <div class="item" data-id="@item.Id">
-                <div class="image">
-                    <img src="../images/@item.Image" style="width: 200px; height:200px" />
-                </div>
-                <div class="span"></div>
-                <div class="detail">
-                    <h3>$@item.Price</h3>
-                    <h4>@item.Title</h4>
-                    <div class="starts"></div>
-                    <a class="add-cart">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
+                                </div>
+                                <div class="item-info-product ">
+                                    <h4><a href="single.html">@item.Title</a></h4>
+                                    <div class="info-product-price">
+                                        <span class="item_price">$@item.Price</span>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="business" value=" " />
+                                                <input type="hidden" name="item_name" value="Formal Blue Shirt" />
+                                                <input type="hidden" name="amount" value="30.99" />
+                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                <input type="hidden" name="currency_code" value="USD" />
+                                                <input type="hidden" name="return" value=" " />
+                                                <input type="hidden" name="cancel_return" value=" " />
+                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            </fieldset>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    }
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

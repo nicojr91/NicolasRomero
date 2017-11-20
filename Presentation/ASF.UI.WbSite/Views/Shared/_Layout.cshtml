@@ -1,206 +1,408 @@
-﻿@using ASF.UI.WbSite.Constants.HomeController
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-@* lang - The language of the page. *@
-@* no-js - The no JavaScript class is removed by modernizr if JavaScript is available. *@
-<html class="no-js" lang="en">
-<head @(ViewBag.OpenGraph == null ? null : Html.OpenGraphNamespace((OpenGraphMetadata)ViewBag.OpenGraph))>
-    @* The order of the tags in the head is important for best performance and compatibility. *@
-    @* charset - The character encoding of the document. *@
-    <meta charset="utf-8">
-    @* viewport - Set the scale on mobile devices (For more info see https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag). *@
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+    <head>
+        <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <!--/tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Elite Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript">
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+                   function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--//tags -->
+        @*<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+        <link href="~/Content/template/bootstrap.css" rel="stylesheet" />
+        @*<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />*@
+        <link href="~/Content/template/style.css" rel="stylesheet" />
+        @*<link href="css/font-awesome.css" rel="stylesheet" />*@
+        <link href="~/Content/template/font-awesome.css" rel="stylesheet" />
+        @*<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />*@
+        <link href="~/Content/template/easy-responsive-tabs.css" rel="stylesheet" />
+        <!-- //for bootstrap working -->
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet" />
+        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css' />
+    </head>
 
-    @* title - The title of the page which appears in the browser window title. Aim for the title to be less than 70
-        characters. The site name appears at the end for better SEO. *@
-    <title>@ViewBag.Title - @Application.Name</title>
+    <body>
 
-
-    @* Icons & Platform Specific Settings (See http://rehansaeed.com/internet-favicon-madness/ for detailed
-        information). The order of these icons is very important. FireFox has a bug in it which can cause problems if
-        the order is changed. *@
-
-    @* Apple Icons - See https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 *@
-    @* apple-touch-icon-57x57.png - Android Stock Browser and non-Retina iPhone and iPod Touch *@
-    <link rel="apple-touch-icon" sizes="57x57" href="/content/icons/apple-touch-icon-57x57.png">
-    @* apple-touch-icon-60x60.png - Same as apple-touch-icon-57x57.png, for non-retina iPhone with iOS7. *@
-    <link rel="apple-touch-icon" sizes="60x60" href="/content/icons/apple-touch-icon-60x60.png">
-    @* apple-touch-icon-72x72.png - iPad mini and the first- and second-generation iPad (1× display) on iOS ≤ 6 *@
-    <link rel="apple-touch-icon" sizes="72x72" href="/content/icons/apple-touch-icon-72x72.png">
-    @* apple-touch-icon-76x76.png - iPad mini and the first- and second-generation iPad (1× display) on iOS ≥ 7 *@
-    <link rel="apple-touch-icon" sizes="76x76" href="/content/icons/apple-touch-icon-76x76.png">
-    @* apple-touch-icon-114x114.png - iPhone (with 2× display) iOS ≤ 6 *@
-    <link rel="apple-touch-icon" sizes="114x114" href="/content/icons/apple-touch-icon-114x114.png">
-    @* apple-touch-icon-120x120.png - iPhone (with 2× and 3 display) iOS ≥ 7 *@
-    <link rel="apple-touch-icon" sizes="120x120" href="/content/icons/apple-touch-icon-120x120.png">
-    @* apple-touch-icon-144x144.png - iPad (with 2× display) iOS ≤ 6 *@
-    <link rel="apple-touch-icon" sizes="144x144" href="/content/icons/apple-touch-icon-144x144.png">
-    @* apple-touch-icon-152x152.png - iPad 3+ (with 2× display) iOS ≥ 7 *@
-    <link rel="apple-touch-icon" sizes="152x152" href="/content/icons/apple-touch-icon-152x152.png">
-    @* apple-touch-icon-180x180.png - iPad and iPad mini (with 2× display) iOS ≥ 8 *@
-    <link rel="apple-touch-icon" sizes="180x180" href="/content/icons/apple-touch-icon-180x180.png">
-
-    @* apple-mobile-web-app-title - The name of the application if pinned to the IOS start screen. *@
-    @* <meta name="apple-mobile-web-app-title" content=""> *@
-    @* apple-mobile-web-app-capable - Hide the browsers user interface on IOS, when the app is run in 'stand-alone'
-        mode. Any links to other pages that are clicked whilst your app is in stand-alone mode will launch the full
-        Safari browser. *@
-    @* <meta name="apple-mobile-web-app-capable" content="yes"> *@
-    @* apple-mobile-web-app-status-bar-style - default/black/black-translucent Styles the IOS status bar. Using
-        black-translucent makes it transparent and overlays it on top of your site, so make sure you have enough margin. *@
-    @* <meta name="apple-mobile-web-app-status-bar-style" content="black"> *@
-
-    @* Apple Startup Images - These splash screen images are only shown if apple-mobile-web-app-capable is set to true.
-        See https://gist.github.com/tfausak/2222823 *@
-    @* apple-touch-startup-image-1536x2008.png - iOS 6 & 7 iPad (retina, portrait) *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"> *@
-    @* apple-touch-startup-image-1496x2048.png - iOS 6 & 7 iPad (retina, landscape) *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"> *@
-    @* apple-touch-startup-image-768x1004.png - iOS 6 iPad (portrait) *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)"> *@
-    @* apple-touch-startup-image-748x1024.png - iOS 6 iPad (landscape) *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"> *@
-    @* apple-touch-startup-image-640x1096.png - iOS 6 & 7 iPhone 5 *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> *@
-    @* apple-touch-startup-image-640x920.png - iOS 6 & 7 iPhone (retina) *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> *@
-    @* apple-touch-startup-image-320x460.png - iOS 6 iPhone *@
-    @* <link rel="apple-touch-startup-image" href="/content/icons/apple-touch-startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)"> *@
-
-    @* favicon-32x32.png - For Safari on Mac OS. *@
-    <link rel="icon" type="image/png" href="/content/icons/favicon-32x32.png" sizes="32x32">
-    @* favicon-192x192.png - For Android Chrome M36 to M38 this icon is used. M39+ uses the manifest.json file specified below. *@
-    <link rel="icon" type="image/png" href="/content/icons/favicon-192x192.png" sizes="192x192">
-    @* favicon-96x96.png - For Google TV. *@
-    <link rel="icon" type="image/png" href="/content/icons/favicon-96x96.png" sizes="96x96">
-    @* favicon-16x16.png - The classic favicon, displayed in the tabs. *@
-    <link rel="icon" type="image/png" href="/content/icons/favicon-16x16.png" sizes="16x16">
-
-    @* Android/Chrome *@
-    @* manifest-json - The location of the browser configuration file. It contains locations of icon files, name of the
-        application and default device screen orientation. Note that the name field is mandatory.
-        See https://developer.chrome.com/multidevice/android/installtohomescreen. *@
-    <link rel="manifest" href="@Url.RouteUrl(HomeControllerRoute.GetManifestJson).TrimEnd('/')">
-    @* theme-color - The colour of the toolbar in Chrome M39+
-        See http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android *@
-    <meta name="theme-color" content="#1E1E1E">
-    @* mobile-web-app-capable - Run Android/Chrome version M31 to M38 in stand-alone mode, hiding the browser chrome. *@
-    @* <meta name="mobile-web-app-capable" content="yes"> *@
-
-    @* Windows 7 Taskbar - This depends on your site, so no code here. See http://www.buildmypinnedsite.com/windows7 *@
-
-    @* Windows 8 IE10 *@
-    @* application-name - The name of the application if pinned to the start screen. *@
-    @* <meta name="application-name" content=""> *@
-    @* msapplication-TileColor - The tile colour which shows around your tile image (msapplication-TileImage). *@
-    @* <meta name="msapplication-TileColor" content="#5cb95c"> *@
-    @* msapplication-TileImage - The tile image. *@
-    @* <meta name="msapplication-TileImage" content="/content/icons/mstile-144x144.png"> *@
-
-    @* Windows 8.1/10 IE11/Edge - See http://www.buildmypinnedsite.com *@
-    @* msapplication-config - The location of the browser configuration file. This is not required if the
-        browserconfig.xml file is at the root of the site. *@
-    @* <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)"> *@
-    
-
-    @* Custom Fonts - If you are using custom fonts. Consider using the Google Web Fonts Loader in async mode.
-        See https://github.com/typekit/webfontloader. *@
-    @Styles.Render("~/Content/css")
-    <meta name="x-font-awesome-stylesheet-fallback-test" class="fa">
-    @Styles.Render("~/Content/fa")
-    @Scripts.Render("~/bundles/modernizr")
+        @Html.Partial("_Header")
 
 
-    @* Description - Used by search engines. Aim for more than 160 characters. *@
-    <meta name="description" content="@ViewBag.Description">
-    @* Author - (Optional) Used by search engines. The author of the page. *@
-    @if (ViewBag.Author != null)
-    {
-        <meta name="author" content="@ViewBag.Author">
-    }
-    @* Render Twitter Card meta tags. *@
-    @if (ViewBag.TwitterCard != null)
-    {
-        @Html.TwitterCard((TwitterCard)ViewBag.TwitterCard);
-    }
-    @* Render Facebook Open Graph meta tags. *@
-    @if (ViewBag.OpenGraph != null)
-    {
-        @Html.OpenGraph((OpenGraphMetadata)ViewBag.OpenGraph);
-    }
-    @* Render the Referrer meta tag for increased privacy. *@
-    @if (ViewBag.ReferrerMode != null)
-    {
-        @Html.ReferrerMeta((ReferrerMode)ViewBag.ReferrerMode)
-    }
+        @Html.Partial("_Banner")
+        <!-- //header-bot -->
+        
+        <!-- Modal1 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="col-md-8 modal_body_left modal_body_left1">
+                            <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
+                            <form action="#" method="post">
+                                <div class="styled-input agile-styled-input-top">
+                                    <input type="text" name="Name" required="" />
+                                    <label>Name</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="email" name="Email" required="" />
+                                    <label>Email</label>
+                                    <span></span>
+                                </div>
+                                <input type="submit" value="Sign In" />
+                            </form>
+                            <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                                <li>
+                                    <a href="#" class="facebook">
+                                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter">
+                                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="instagram">
+                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pinterest">
+                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#" data-toggle="modal" data-target="#myModal2"> Don't have an account?</a></p>
 
-    @* Canonical - The URL of the current page. Stops case differences and http/https being treated as different URL's
-        by search engines. The settings in this project should make this redundant, unless you are mixing HTTP and
-        HTTPS or you have multiple URL's to the same resource which you should avoid.
-        (See http://googlewebmastercentral.blogspot.co.uk/2009/02/specify-your-canonical.html). *@
-    @*<link rel="canonical" href="">*@
-
-
-    @* Atom 1.0 Feed - Link to the. This enables the 'Subscribe to this page' button in FireFox. *@
-    <link href="@Url.RouteUrl(HomeControllerRoute.GetFeed)" rel="alternate" title="@Application.Name Feed" type="application/atom+xml">
-
-
-    @* OpenSearch - (See http://www.hanselman.com/blog/CommentView.aspx?guid=50cc95b1-c043-451f-9bc2-696dc564766d and http://www.opensearch.org) *@
-    <link href="@Url.RouteUrl(HomeControllerRoute.GetOpenSearchXml).TrimEnd('/')" rel="search" title="Architecture Solutions Foundation Search" type="application/opensearchdescription+xml">
-
-    <link href="~/Content/style.css" rel="stylesheet" />
-    @* You can use the head section to render additional meta tags. *@
-    @RenderSection("head", required: false)
-</head>
-<body>
-    @* Skip to main content link for people who use screen readers. sr-only makes this only visible to screen readers.
-        See http://a11yproject.com/posts/skip-nav-links/. *@
-    <a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
-    @* nav - The main navigation for the site. *@
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span aria-hidden="true" class="icon-bar"></span>
-                    <span aria-hidden="true" class="icon-bar"></span>
-                    <span aria-hidden="true" class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" role="banner" href="@Url.RouteUrl(HomeControllerRoute.GetIndex)"><span class="fa fa-star"></span> Marroq</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-
-                    <li>@Html.ActionLink("Category", "Index", "Category")</li>
-                    <li>@Html.ActionLink("Country", "Index", "Country")</li>
-                    <li>@Html.ActionLink("Dealer", "Index", "Dealer")</li>
-                    <li>@Html.ActionLink("Product", "Index", "Product")</li>
-                    @*<li>@Html.ActionLink("Catalog", "Index", "Catalog")</li>*@
-                </ul>
-                @Html.Partial("_LoginPartial")
+                        </div>
+                        <div class="col-md-4 modal_body_right modal_body_right1">
+                            <img src="images/template/log_pic.jpg" alt=" " />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //Modal content-->
             </div>
         </div>
-    </nav>
-    @* div id="main" - The main container for the page. Change this to the HTML5 main tag when it gains more browser support. *@
-    <div id="main" class="container body-content" role="main">
-        <!--[if lt IE 8]>
-            <div class="alert alert-warning" role="alert">
-                <p>You are using an outdated browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <!-- //Modal1 -->
+        <!-- Modal2 -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="col-md-8 modal_body_left modal_body_left1">
+                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
+                            <form action="#" method="post">
+                                <div class="styled-input agile-styled-input-top">
+                                    <input type="text" name="Name" required="" />
+                                    <label>Name</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="email" name="Email" required="" />
+                                    <label>Email</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" name="password" required="" />
+                                    <label>Password</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" name="Confirm Password" required="" />
+                                    <label>Confirm Password</label>
+                                    <span></span>
+                                </div>
+                                <input type="submit" value="Sign Up" />
+                            </form>
+                            <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                                <li>
+                                    <a href="#" class="facebook">
+                                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter">
+                                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="instagram">
+                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pinterest">
+                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#">By clicking register, I agree to your terms</a></p>
+
+                        </div>
+                        <div class="col-md-4 modal_body_right modal_body_right1">
+                            <img src="images/template/log_pic.jpg" alt=" " />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //Modal content-->
             </div>
-        <![endif]-->
+        </div>
+        <!-- //Modal2 -->
+        <!-- banner -->
+        
+        
+        <!--/grids-->
+        <!-- /new_arrivals -->
         @RenderBody()
-        <hr>
-        <footer role="contentinfo">
-            <p>&copy; @DateTime.Now.Year - @Application.Name</p>
-        </footer>
-        @Html.Partial("_ModalCart")
-    </div>
-    
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/site")
-    <script src="~/Scripts/jquery.cookie-1.4.1.min.js"></script>
-    <script src="~/Scripts/scripts.js"></script>
-    @RenderSection("scripts", required: false)
-</body>
+        <!-- //new_arrivals -->
+        <!-- /we-offer -->
+        <div class="sale-w3ls">
+            <div class="container">
+                <h6>We Offer Flat <span>40%</span> Discount</h6>
+
+                <a class="hvr-outline-out button2" href="single.html">Shop Now </a>
+            </div>
+        </div>
+        <!-- //we-offer -->
+        <!--/grids-->
+        <div class="coupons">
+            <div class="coupons-grids text-center">
+                <div class="w3layouts_mail_grid">
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>FREE SHIPPING</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-headphones" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>24/7 SUPPORT</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>MONEY BACK GUARANTEE</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>FREE GIFT COUPONS</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+        </div>
+        <!--grids-->
+        @Html.Partial("_Footer")
+        <!-- login -->
+        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-info">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body modal-spa">
+                        <div class="login-grids">
+                            <div class="login">
+                                <div class="login-bottom">
+                                    <h3>Sign up for free</h3>
+                                    <form>
+                                        <div class="sign-up">
+                                            <h4>Email :</h4>
+                                            <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="" />
+                                        </div>
+                                        <div class="sign-up">
+                                            <h4>Password :</h4>
+                                            <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="" />
+
+                                        </div>
+                                        <div class="sign-up">
+                                            <h4>Re-type Password :</h4>
+                                            <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="" />
+
+                                        </div>
+                                        <div class="sign-up">
+                                            <input type="submit" value="REGISTER NOW" />
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="login-right">
+                                    <h3>Sign in with your account</h3>
+                                    <form>
+                                        <div class="sign-in">
+                                            <h4>Email :</h4>
+                                            <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="" />
+                                        </div>
+                                        <div class="sign-in">
+                                            <h4>Password :</h4>
+                                            <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="" />
+                                            <a href="#">Forgot password?</a>
+                                        </div>
+                                        <div class="single-bottom">
+                                            <input type="checkbox" id="brand" value="" />
+                                            <label for="brand"><span></span>Remember Me.</label>
+                                        </div>
+                                        <div class="sign-in">
+                                            <input type="submit" value="SIGNIN" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //login -->
+        <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+
+
+        
+        
+        <!-- js -->
+        <script src="~/Scripts/template/jquery-2.1.4.min.js"></script>
+        @*<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>*@
+        <!-- //js -->
+        @*<script src="js/modernizr.custom.js"></script>*@
+        <script src="~/Scripts/template/modernizr.custom.js"></script>
+        <!-- Custom-JavaScript-File-Links -->
+        <!-- cart-js -->
+        @*<script src="js/minicart.min.js"></script>*@
+        <script src="~/Scripts/template/minicart.min.js"></script>
+        <script>
+            // Mini Cart
+            paypal.minicart.render({
+                action: '#'
+            });
+
+            if (~window.location.search.indexOf('reset=true')) {
+                paypal.minicart.reset();
+            }
+        </script>
+
+        <!-- //cart-js -->
+        <!-- script for responsive tabs -->
+        @*<script src="js/easy-responsive-tabs.js"></script>*@
+        <script src="~/Scripts/template/easy-responsive-tabs.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#horizontalTab').easyResponsiveTabs({
+                    type: 'default', //Types: default, vertical, accordion
+                    width: 'auto', //auto or any width like 600px
+                    fit: true,   // 100% fit in a container
+                    closed: 'accordion', // Start closed if in accordion view
+                    activate: function (event) { // Callback function if tab is switched
+                        var $tab = $(this);
+                        var $info = $('#tabInfo');
+                        var $name = $('span', $info);
+                        $name.text($tab.text());
+                        $info.show();
+                    }
+                });
+                $('#verticalTab').easyResponsiveTabs({
+                    type: 'vertical',
+                    width: 'auto',
+                    fit: true
+                });
+            });
+        </script>
+        <!-- //script for responsive tabs -->
+        <!-- stats -->
+        @*<script src="js/jquery.waypoints.min.js"></script>*@
+        <script src="~/Scripts/template/jquery.waypoints.min.js"></script>
+        @*<script src="js/jquery.countup.js"></script>*@
+        <script src="~/Scripts/template/jquery.countup.js"></script>
+        <script>
+            $('.counter').countUp();
+        </script>
+        <!-- //stats -->
+        <!-- start-smoth-scrolling -->
+        @*<script type="text/javascript" src="js/move-top.js"></script>*@
+        <script src="~/Scripts/template/move-top.js"></script>
+        @*<script type="text/javascript" src="js/jquery.easing.min.js"></script>*@
+        <script src="~/Scripts/template/jquery.easing.min.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+				    var defaults = {
+				    containerID: 'toTop', // fading element id
+				    containerHoverID: 'toTopHover', // fading element hover id
+				    scrollSpeed: 1200,
+				    easingType: 'linear'
+				    };
+			    */
+
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+        </script>
+        <!-- //here ends scrolling icon -->
+        <!-- for bootstrap working -->
+        @*<script type="text/javascript" src="js/bootstrap.js"></script>*@
+        <script src="~/Scripts/template/bootstrap.js"></script>
+        <script src="~/Scripts/jquery.cookie-1.4.1.min.js"></script>
+        <script src="~/Scripts/scripts.js"></script>
+
+        @RenderSection("scripts", required: false)
+    </body>
+
 </html>
