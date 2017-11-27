@@ -107,6 +107,8 @@ namespace ASF.Entities
         [DisplayName("Changed By")]
         public int? ChangedBy { get; set; }
 
-        
+        [DataMember]
+        [DisplayName("Details")]
+        public List<OrderDetail> Details { get; set; }
     }
 }

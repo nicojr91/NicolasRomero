@@ -7,16 +7,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
-        <!--/tags -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Elite Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-        <script type="application/x-javascript">
-            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-                   function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!--//tags -->
+        
+
+        <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+
         @*<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
         <link href="~/Content/template/bootstrap.css" rel="stylesheet" />
         @*<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />*@
@@ -26,8 +22,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         @*<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />*@
         <link href="~/Content/template/easy-responsive-tabs.css" rel="stylesheet" />
         <!-- //for bootstrap working -->
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet" />
-        <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css' />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css' />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110226222-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-110226222-1');
+        </script>
     </head>
 
     <body>
@@ -35,10 +40,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         @Html.Partial("_Header")
 
 
-        @Html.Partial("_Banner")
+        
         <!-- //header-bot -->
         
-        <!-- Modal1 -->
+        <!-- Sign In -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -51,41 +56,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
                             <form action="@Url.Action("Login", "Account")" method="post">
                                 @Html.AntiForgeryToken()
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" required="" />
-                                    <label>Name</label>
-                                    <span></span>
-                                </div>
                                 <div class="styled-input">
                                     <input type="email" name="Email" required="" />
                                     <label>Email</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" name="Password" required="" />
+                                    <label>Password</label>
                                     <span></span>
                                 </div>
                                 <input type="submit" value="Sign In" />
                             </form>
                             <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
                                 <li>
-                                    <a href="#" class="facebook">
+                                    <a href="https://www.facebook.com/marroq" class="facebook">
                                         <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="twitter">
+                                    <a href="https://twitter.com/marroq" class="twitter">
                                         <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="instagram">
-                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="pinterest">
-                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                     </a>
                                 </li>
                             </ul>
@@ -102,8 +95,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!-- //Modal content-->
             </div>
         </div>
-        <!-- //Modal1 -->
-        <!-- Modal2 -->
+        <!-- //Sign In -->
+
+        <!-- Register -->
         <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -114,7 +108,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="modal-body modal-body-sub_agile">
                         <div class="col-md-8 modal_body_left modal_body_left1">
                             <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                            <form action="@Url.Action("Register", "Account")" method="post">
+                            <form action="@Url.Action("Login", "Account")" method="post">
                                 @Html.AntiForgeryToken()
                                 <div class="styled-input agile-styled-input-top">
                                     <input type="text" name="Name" required="" />
@@ -131,36 +125,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <label>Password</label>
                                     <span></span>
                                 </div>
-                                <div class="styled-input">
-                                    <input type="password" name="Confirm Password" required="" />
-                                    <label>Confirm Password</label>
-                                    <span></span>
-                                </div>
                                 <input type="submit" value="Sign Up" />
                             </form>
                             <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
                                 <li>
-                                    <a href="#" class="facebook">
+                                    <a href="https://www.facebook.com/marroq" class="facebook">
                                         <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="twitter">
+                                    <a href="https://twitter.com/marroq" class="twitter">
                                         <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="instagram">
-                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="pinterest">
-                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                     </a>
                                 </li>
                             </ul>
@@ -177,68 +154,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!-- //Modal content-->
             </div>
         </div>
-        <!-- //Modal2 -->
+        <!-- //Register -->
         <!-- banner -->
         
         
         <!--/grids-->
         <!-- /new_arrivals -->
         @RenderBody()
+        
         <!-- //new_arrivals -->
-        <!-- /we-offer -->
-        <div class="sale-w3ls">
-            <div class="container">
-                <h6>We Offer Flat <span>40%</span> Discount</h6>
-
-                <a class="hvr-outline-out button2" href="single.html">Shop Now </a>
-            </div>
-        </div>
-        <!-- //we-offer -->
-        <!--/grids-->
-        <div class="coupons">
-            <div class="coupons-grids text-center">
-                <div class="w3layouts_mail_grid">
-                    <div class="col-md-3 w3layouts_mail_grid_left">
-                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                        </div>
-                        <div class="w3layouts_mail_grid_left2">
-                            <h3>FREE SHIPPING</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 w3layouts_mail_grid_left">
-                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                            <i class="fa fa-headphones" aria-hidden="true"></i>
-                        </div>
-                        <div class="w3layouts_mail_grid_left2">
-                            <h3>24/7 SUPPORT</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 w3layouts_mail_grid_left">
-                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </div>
-                        <div class="w3layouts_mail_grid_left2">
-                            <h3>MONEY BACK GUARANTEE</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 w3layouts_mail_grid_left">
-                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                            <i class="fa fa-gift" aria-hidden="true"></i>
-                        </div>
-                        <div class="w3layouts_mail_grid_left2">
-                            <h3>FREE GIFT COUPONS</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-
-            </div>
-        </div>
+        
         <!--grids-->
         @Html.Partial("_Footer")
         <!-- login -->
@@ -307,102 +232,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
-
+        @Html.Partial("_ModalCart")
 
         
         
         <!-- js -->
         <script src="~/Scripts/template/jquery-2.1.4.min.js"></script>
-        @*<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>*@
-        <!-- //js -->
-        @*<script src="js/modernizr.custom.js"></script>*@
-        <script src="~/Scripts/template/modernizr.custom.js"></script>
-        <!-- Custom-JavaScript-File-Links -->
-        <!-- cart-js -->
-        @*<script src="js/minicart.min.js"></script>*@
-        <script src="~/Scripts/template/minicart.min.js"></script>
-        <script>
-            // Mini Cart
-            paypal.minicart.render({
-                action: '#'
-            });
-
-            if (~window.location.search.indexOf('reset=true')) {
-                paypal.minicart.reset();
-            }
-        </script>
-
-        <!-- //cart-js -->
-        <!-- script for responsive tabs -->
-        @*<script src="js/easy-responsive-tabs.js"></script>*@
-        <script src="~/Scripts/template/easy-responsive-tabs.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#horizontalTab').easyResponsiveTabs({
-                    type: 'default', //Types: default, vertical, accordion
-                    width: 'auto', //auto or any width like 600px
-                    fit: true,   // 100% fit in a container
-                    closed: 'accordion', // Start closed if in accordion view
-                    activate: function (event) { // Callback function if tab is switched
-                        var $tab = $(this);
-                        var $info = $('#tabInfo');
-                        var $name = $('span', $info);
-                        $name.text($tab.text());
-                        $info.show();
-                    }
-                });
-                $('#verticalTab').easyResponsiveTabs({
-                    type: 'vertical',
-                    width: 'auto',
-                    fit: true
-                });
-            });
-        </script>
-        <!-- //script for responsive tabs -->
-        <!-- stats -->
-        @*<script src="js/jquery.waypoints.min.js"></script>*@
-        <script src="~/Scripts/template/jquery.waypoints.min.js"></script>
-        @*<script src="js/jquery.countup.js"></script>*@
-        <script src="~/Scripts/template/jquery.countup.js"></script>
-        <script>
-            $('.counter').countUp();
-        </script>
-        <!-- //stats -->
-        <!-- start-smoth-scrolling -->
-        @*<script type="text/javascript" src="js/move-top.js"></script>*@
-        <script src="~/Scripts/template/move-top.js"></script>
-        @*<script type="text/javascript" src="js/jquery.easing.min.js"></script>*@
-        <script src="~/Scripts/template/jquery.easing.min.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-                });
-            });
-        </script>
-        <!-- here stars scrolling icon -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-                /*
-				    var defaults = {
-				    containerID: 'toTop', // fading element id
-				    containerHoverID: 'toTopHover', // fading element hover id
-				    scrollSpeed: 1200,
-				    easingType: 'linear'
-				    };
-			    */
-
-                $().UItoTop({ easingType: 'easeOutQuart' });
-
-            });
-        </script>
-        <!-- //here ends scrolling icon -->
-        <!-- for bootstrap working -->
-        @*<script type="text/javascript" src="js/bootstrap.js"></script>*@
         <script src="~/Scripts/template/bootstrap.js"></script>
         <script src="~/Scripts/jquery.cookie-1.4.1.min.js"></script>
+        <script src="~/Scripts/template/modernizr.custom.js"></script>
+        <script src="~/Scripts/template/jquery.waypoints.min.js"></script>
+        <script src="~/Scripts/template/jquery.countup.js"></script>
+        <script src="~/Scripts/template/move-top.js"></script>
+        
         <script src="~/Scripts/scripts.js"></script>
+        <script src="~/Scripts/catalog.js"></script>
 
         @RenderSection("scripts", required: false)
     </body>

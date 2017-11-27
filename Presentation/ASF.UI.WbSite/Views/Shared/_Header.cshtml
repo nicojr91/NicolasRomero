@@ -23,34 +23,22 @@
         </div>
         <!-- header-bot -->
         <div class="col-md-4 logo_agile">
-            <h1><a href="index.html"><span>M</span>arroq <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+            <h1><a href="/"><span>M</span>arroq <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
         </div>
         <!-- header-bot -->
         <div class="col-md-4 agileits-social top_content">
             <ul class="social-nav model-3d-0 footer-social w3_agile_social">
                 <li class="share">Share On : </li>
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="https://www.facebook.com/marroq" class="facebook">
                         <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                         <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="twitter">
+                    <a href="https://twitter.com/marroq" class="twitter">
                         <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                         <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="instagram">
-                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="pinterest">
-                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                     </a>
                 </li>
             </ul>
@@ -79,12 +67,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
-                            <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                            <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                            <li class=" menu__item">@Html.ActionLink("Category", "Index", "Category")</li>
-                            <li class=" menu__item">@Html.ActionLink("Country", "Index", "Country")</li>
-                            <li class=" menu__item">@Html.ActionLink("Dealer", "Index", "Dealer")</li>
-                            <li class=" menu__item">@Html.ActionLink("Product", "Index", "Product")</li>
+                            <li class="active menu__item menu__item--current"><a class="menu__link" href="/">Home <span class="sr-only">(current)</span></a></li>
+                            @*<li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>*@
+                            <li class=" menu__item"><a class="menu__link" href="@Url.Action("Index", "Category")">Category</a></li>
+                            <li class=" menu__item"><a class="menu__link" href="@Url.Action("Index", "Country")">Country</a></li>
+                            <li class=" menu__item"><a class="menu__link" href="@Url.Action("Index", "Dealer")">Dealer</a></li>
+                            <li class=" menu__item"><a class="menu__link" href="@Url.Action("Index", "Product")">Product</a></li>
                             @*<li class="dropdown menu__item">
                                 <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-column columns-3">
@@ -158,7 +146,7 @@
                                     <li><a href="typography.html">Typography</a></li>
                                 </ul>
                             </li>*@
-                            <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                            @*<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>*@
                         </ul>
                     </div>
                 </div>
@@ -166,11 +154,7 @@
         </div>
         <div class="top_nav_right">
             <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                <form action="#" method="post" class="last">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                </form>
+                <button class="w3view-cart" id="show-cart" data-toggle="modal" data-target="#ModalCart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
 
             </div>
         </div>

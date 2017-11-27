@@ -4,55 +4,59 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <div class="row">
+        <h2 class="col-md-12">Details</h2>
+        <div class="col-md-12">
+            <h4>Country</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-<div>
-    <h4>Country</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedOn)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedOn)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChangedOn)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ChangedOn)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ChangedOn)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ChangedOn)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChangedBy)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ChangedBy)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ChangedBy)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ChangedBy)
-        </dd>
-
-    </dl>
+            </dl>
+        </div>
+        <div class="col-md-12">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     $(".item").on("click", ".add-cart", function (e) {
-        var productId = $(e.currentTarget).parent().parent().data("id");
+        var productId = $(e.currentTarget).prev().val();
         //guarda cookie con los datos del usuario*productID,cantidad-...
         if ($.cookie("newbuy") === undefined) {
             //crea cookie
@@ -28,7 +28,7 @@
             
         }
 
-        
+        $('#ModalCart').modal('show');
     });
 
 });

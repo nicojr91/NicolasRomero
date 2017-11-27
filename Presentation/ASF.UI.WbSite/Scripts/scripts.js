@@ -30,6 +30,38 @@
     $("#ModalCart").on("keyup", ".quantity", function () {
         calculateTotal();
     });
+
+    $('#ModalCart').on('click', '.buy', function (e) {
+        
+        var order = {};
+
+        order.clientId = $("#clientId").val();
+        order.lines = [];
+
+        $("#table-cart").find("tr").each(function (i, e) {
+            var line = {};
+            if ($(this).find("th").length < 1) {
+                line.product = $($(this).children()[0]).data("id");
+                line.quantity = $($(this).children()[1]).children().val();
+
+                order.lines.push(line);
+            }
+        });
+
+        console.log(JSON.stringify(order));
+
+        $.post("http://localhost:24005/order/create", JSON.stringify(order), function (data) {
+            console.log(data);
+        });
+
+        
+
+    });
+
+    $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    });
     
 });
 
