@@ -48,10 +48,11 @@
             }
         });
 
-        console.log(JSON.stringify(order));
-
         $.post("http://localhost:24005/order/create", JSON.stringify(order), function (data) {
-            console.log(data);
+            if (data.status != "error") {
+                $.removeCookie("newbuy");
+                window.location.href = data.url;
+            }
         });
 
         

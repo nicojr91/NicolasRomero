@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,7 +18,9 @@ namespace ASF.UI.WbSite.Controllers
         // GET: /Order/
         public ActionResult Index()
         {
-            return View();
+            var resp = op.SelectList();
+
+            return View(resp);
         }
 
         //
@@ -37,7 +40,7 @@ namespace ASF.UI.WbSite.Controllers
         //
         // POST: /Order/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public JsonResult Create(FormCollection collection)
         {
             try
             {
@@ -60,11 +63,11 @@ namespace ASF.UI.WbSite.Controllers
                 order.Details = listItems;
                 op.Add(order);
 
-                return RedirectToAction("Index");
+                return Json(new { status = "ok", url = "/order/thankyou?orderId="+order.Id });//+order.Id
             }
             catch
             {
-                return View();
+                return Json(new { status = "error" });
             }
         }
 
@@ -109,6 +112,22 @@ namespace ASF.UI.WbSite.Controllers
                 // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Order/Delete/5
+        public ActionResult ThankYou(int orderid)
+        {
+            try
+            {
+                ViewBag.id = orderid;
+
+                return View("ThankYouPage");
             }
             catch
             {

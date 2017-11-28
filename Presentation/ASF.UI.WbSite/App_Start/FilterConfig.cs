@@ -13,7 +13,7 @@
         {
             AddSearchEngineOptimizationFilters(filters);
             AddSecurityFilters(filters);
-            AddContentSecurityPolicyFilters(filters);
+            //AddContentSecurityPolicyFilters(filters);
         }
 
         /// <summary>

@@ -19,7 +19,7 @@ namespace ASF.Data
         public OrderDetail Create(OrderDetail detail)
         {
             const string sqlStatement = "INSERT INTO [OrderDetail] ([OrderId], [ProductId], [Price], [Quantity], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
-                "VALUES(@OrderId, @ProductId, @Price, @Quantity, @OrderNumber, @ItemCount, @Name, @Rowid, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
+                "VALUES(@OrderId, @ProductId, @Price, @Quantity, @CreatedOn, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
 
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
