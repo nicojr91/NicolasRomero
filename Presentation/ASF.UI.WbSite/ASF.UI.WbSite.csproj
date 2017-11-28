@@ -553,6 +553,7 @@
     <Content Include="Scripts\template\modernizr.custom.js" />
     <Content Include="Scripts\template\move-top.js" />
     <Content Include="Scripts\template\responsiveslides.min.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />

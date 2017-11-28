@@ -48,10 +48,10 @@
                                     @Html.DisplayFor(modelItem => item.LastName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CategoryId)
+                                    @ViewBag.categories[item.CategoryId]
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CountryId)
+                                    @ViewBag.countries[item.CountryId]
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Description)

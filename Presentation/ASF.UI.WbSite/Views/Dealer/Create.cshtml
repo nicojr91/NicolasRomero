@@ -38,8 +38,8 @@
                         @Html.LabelFor(model => model.CategoryId, new { @class = "control-label col-md-2" })
                         <div class="col-md-3">
                             <div class="input-group">
-                                <input id="categoryText" type="text" disabled class="form-control" placeholder="Category">
-                                <input id="categoryId" type="hidden" name="categoryId" class="form-control" placeholder="Category">
+                                <input id="categoryText" type="text" disabled class="form-control" placeholder="Category" />
+                                <input id="categoryId" type="hidden" name="categoryId" class="form-control" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalCategories">
                                         <span class="glyphicon glyphicon-search"></span>
@@ -53,8 +53,8 @@
                         @Html.LabelFor(model => model.CountryId, new { @class = "control-label col-md-2" })
                         <div class="col-md-3">
                             <div class="input-group">
-                                <input type="text" disabled class="form-control" placeholder="Country">
-                                <input type="hidden" name="countyId" class="form-control">
+                                <input id="countryText" type="text" disabled class="form-control" placeholder="Country">
+                                <input id="countryId" type="hidden" name="countryId" class="form-control">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalCountry">
                                         <span class="glyphicon glyphicon-search"></span>
@@ -98,7 +98,7 @@
                             <div class="col-md-4">
                                 @*<div class="radio">*@
                                     <label>
-                                        <input type="radio" name="category" value="@category.Id" />@category.Name
+                                        <input type="radio" class="category" value="@category.Id" />@category.Name
                                     </label>
                                 @*</div>*@
                             </div>
@@ -132,7 +132,7 @@
                             <div class="col-md-4">
                                 @*<div class="radio">*@
                                     <label>
-                                        <input type="radio" name="category" value="@country.Id" />@country.Name
+                                        <input type="radio" class="country" value="@country.Id" />@country.Name
                                     </label>
                                 @*</div>*@
                             </div>
@@ -164,8 +164,17 @@
         $(function () {
 
             $(".save", "#ModalCategories").on("click", function () {
-                $("#categoryId").val($("[name='category']:checked").val());
-                $("#categoryText").text($("[name='category']:checked").parent().text());
+                $("#categoryId").val($(".category:checked").val());
+                $("#categoryText").val($(".category:checked").parent().text().trim());
+
+                $("#ModalCategories").modal('hide');
+            });
+
+            $(".save", "#ModalCountry").on("click", function () {
+                $("#countryId").val($(".country:checked").val());
+                $("#countryText").val($(".country:checked").parent().text().trim());
+
+                $("#ModalCountry").modal('hide');
             });
 
         });

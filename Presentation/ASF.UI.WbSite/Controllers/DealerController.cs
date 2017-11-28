@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASF.Entities;
 
 namespace ASF.UI.WbSite.Areas.Dealer.Controllers
 {
@@ -18,6 +19,23 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         public ActionResult Index()
         {
             var resp = dealerProcess.SelectList();
+            var listCategory = categoryProcess.SelectList();
+            var listCountry = countryProcess.SelectList();
+
+            Dictionary<int, string> mapIdCategory = new Dictionary<int,string>();
+            Dictionary<int, string> mapIdCountry = new Dictionary<int,string>();
+            foreach (ASF.Entities.Category cat in listCategory) 
+            {
+                mapIdCategory.Add(cat.Id, cat.Name);
+            }
+
+            foreach (ASF.Entities.Country coun in listCountry)
+            {
+                mapIdCountry.Add(coun.Id, coun.Name);
+            }
+
+            ViewBag.countries = mapIdCountry;
+            ViewBag.categories = mapIdCategory;
 
             return View(resp);
         }
@@ -51,13 +69,23 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var newDealer = new ASF.Entities.Dealer();
+                newDealer.FirstName = collection["FirstName"];
+                newDealer.LastName = collection["LastName"];
+                newDealer.CategoryId = int.Parse(collection["categoryId"]);
+                newDealer.CountryId = int.Parse(collection["countryId"]);
+                newDealer.Description = collection["Description"];
+                newDealer.TotalProducts = 0;
+                newDealer.CreatedOn = DateTime.Now;
+                newDealer.ChangedOn = DateTime.Now;
+
+                dealerProcess.Add(newDealer);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Create");
             }
         }
 
