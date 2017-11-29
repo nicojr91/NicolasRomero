@@ -56,7 +56,7 @@ namespace ASF.Entities
         /// </summary>
         [DataMember] //([State]='Reviewed' OR [State]='Suspended' OR [State]='Closed' OR [State]='Cancelled' OR [State]='Approved')
         [DisplayName("State")]
-        public int? State { get; set; }
+        public string State { get; set; }
 
         /// <summary>
         /// 

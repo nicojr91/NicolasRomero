@@ -29,8 +29,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.DealerId, new { @class = "control-label col-md-2" })
                         <div class="col-md-3">
-                            <input type="text" id="dealer" class="form-control" />
-                            <input type="hidden" name="dealerId" />
+                            <div class="input-group">
+                                <input id="dealerText" type="text" disabled class="form-control" placeholder="Dealer" />
+                                <input id="dealerId" type="hidden" name="dealerId" class="form-control" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalDealer">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
 
@@ -69,7 +76,41 @@
 </div>
 
 
-
+<div class="modal fade" id="ModalDealer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Categories</h4>
+            </div>
+            <div class="modal-body">
+                @if (@ViewBag.dealers.Count > 0)
+                {
+                    <div class="row">
+                        @foreach (var dealer in @ViewBag.dealers)
+                        {
+                            <div class="col-md-4">
+                                @*<div class="radio">*@
+                                <label>
+                                    <input type="radio" class="dealer" value="@dealer.Id" />@dealer.FirstName @dealer.LastName
+                                </label>
+                                @*</div>*@
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div>There are no dealers.</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -79,4 +120,17 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+
+            $(".save", "#ModalDealer").on("click", function () {
+                $("#dealerId").val($(".dealer:checked").val());
+                $("#dealerText").val($(".dealer:checked").parent().text().trim());
+
+                $("#ModalDealer").modal('hide');
+            });
+
+        });
+    </script>
 }

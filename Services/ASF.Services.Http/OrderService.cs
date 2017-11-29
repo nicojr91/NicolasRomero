@@ -22,7 +22,9 @@ namespace ASF.Services.Http
             try
             {
                 var bc = new OrderBusiness();
-                return bc.Add(order);
+                order = bc.Add(order);
+
+                return order;
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
     public class ProductController : Controller
     {
         private static ProductProcess productProcess = new ProductProcess();
+        private static DealerProcess dealerProcess = new DealerProcess();
 
         //
         // GET: /Product/Product/
@@ -31,6 +32,8 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
         // GET: /Product/Product/Create
         public ActionResult Create()
         {
+            @ViewBag.dealers = dealerProcess.SelectList();
+
             return View();
         }
 
@@ -50,7 +53,7 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
                 var product = new ASF.Entities.Product();
                 product.Title = collection["title"];
                 product.Description = collection["description"];
-                product.DealerId = 2;//Int32.Parse(collection["dealerId"])
+                product.DealerId = Int32.Parse(collection["dealerId"]);
                 product.Price = double.Parse(collection["price"]);
                 product.Image = imgName;
                 product.CreatedOn = DateTime.Now;

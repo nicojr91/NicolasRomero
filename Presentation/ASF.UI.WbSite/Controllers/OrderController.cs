@@ -61,9 +61,9 @@ namespace ASF.UI.WbSite.Controllers
                 }
                 order.ItemCount = listItems.Count;
                 order.Details = listItems;
-                op.Add(order);
+                order = op.Add(order);
 
-                return Json(new { status = "ok", url = "/order/thankyou?orderId="+order.Id });//+order.Id
+                return Json(new { status = "ok", url = "/order/thankyou" });
             }
             catch
             {
@@ -121,12 +121,10 @@ namespace ASF.UI.WbSite.Controllers
 
         //
         // POST: /Order/Delete/5
-        public ActionResult ThankYou(int orderid)
+        public ActionResult ThankYou()
         {
             try
             {
-                ViewBag.id = orderid;
-
                 return View("ThankYouPage");
             }
             catch
