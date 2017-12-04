@@ -13,6 +13,7 @@ namespace ASF.UI.WbSite.Controllers
     public class OrderController : Controller
     {
         OrderProcess op = new OrderProcess();
+        ProductProcess pp = new ProductProcess();
 
         //
         // GET: /Order/
@@ -27,7 +28,9 @@ namespace ASF.UI.WbSite.Controllers
         // GET: /Order/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var resp = op.Find(id);
+
+            return View(resp);
         }
 
         //
@@ -75,7 +78,18 @@ namespace ASF.UI.WbSite.Controllers
         // GET: /Order/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var resp = op.Find(id);
+            ViewBag.order = op.Find(id);
+            Dictionary<int, string> mapIdNameProducts = new Dictionary<int, string>();
+            foreach(ASF.Entities.OrderDetail detail in resp.Details)
+            {
+                var product = pp.Find(detail.ProductId);
+                mapIdNameProducts.Add(product.Id, product.Title);
+            }
+
+            ViewBag.products = mapIdNameProducts;
+
+            return View(resp);
         }
 
         //

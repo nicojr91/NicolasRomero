@@ -5549,4 +5549,28 @@ p.w3ls_para {
       left: 68% !important;
     }
 }
+
+.showme-more {
+    font-size: 13px;
+    color: #fff;
+    background: #2fdab8;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    width: 18%;
+    text-transform: uppercase;
+    padding: .5em 0;
+    outline: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+    left: 42%;
+    top: 33px;
+}
+
+.showme-more:hover {
+    color: #fff;
+
+}
+
 /*-- //responsive media queries --*/

@@ -79,6 +79,10 @@ namespace ASF.Business
         {
             var orderDac = new OrderDac();
             var result = orderDac.SelectById(id);
+
+            var orderDetailsDac = new OrderDetailDac();
+            result.Details = orderDetailsDac.SelectByOrderId(result.Id);
+
             return result;
         }
 

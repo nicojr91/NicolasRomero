@@ -5,12 +5,12 @@
         var cookie = readCookie();
 
         if (cookie !== undefined) {
-            $.get("http://localhost:24005/cart/getcart", JSON.stringify(cookie), function (data) {
-            $("#table-cart").find("tbody").children().remove();
-            $("#table-cart").find("tbody").append(data);
+            $.get("/cart/getcart", JSON.stringify(cookie), function (data) {
+                $("#table-cart").find("tbody").children().remove();
+                $("#table-cart").find("tbody").append(data);
 
-            calculateTotal();
-        });
+                calculateTotal();
+            });
         }
         
     });
@@ -48,7 +48,7 @@
             }
         });
 
-        $.post("http://localhost:24005/order/create", JSON.stringify(order), function (data) {
+        $.post("/order/create", JSON.stringify(order), function (data) {
             if (data.status != "error") {
                 $.removeCookie("newbuy");
                 window.location.href = data.url;

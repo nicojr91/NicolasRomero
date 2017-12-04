@@ -85,19 +85,22 @@ namespace ASF.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public OrderDetail SelectById(int id)
+        public List<OrderDetail> SelectByOrderId(int id)
         {
             const string sqlStatement = "SELECT [Id], [OrderId], [ProductId], [Price], [Quantity], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] " +
-                "FROM [OrderDetail] WHERE [Id]=@Id ";
+                "FROM [OrderDetail] WHERE [OrderId]=@Id ";
 
-            OrderDetail detail = null;
+            List<OrderDetail> detail = new List<OrderDetail>();
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
                 using (var dr = db.ExecuteReader(cmd))
                 {
-                    if (dr.Read()) detail = LoadOrderDetail(dr);
+                    while (dr.Read())
+                    {
+                        detail.Add(LoadOrderDetail(dr));
+                    }
                 }
             }
 

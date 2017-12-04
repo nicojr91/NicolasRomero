@@ -1,13 +1,10 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "All Products";
 }
-
-@Html.Partial("_Banner")
-
 <div class="new_arrivals_agile_w3ls_info">
     <div class="container">
         <div class="row">
-            <h3 class="wthree_text_info">New <span>Arrivals</span></h3>
+            <h3 class="wthree_text_info">All <span>Products</span></h3>
             <div id="horizontalTab">
                 <div class="resp-tabs-container">
                     <!--/tab_one-->
@@ -17,8 +14,8 @@
                             <div class="col-md-3 product-men item">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <img src="../images/@item.Image" alt="" class="pro-image-front" />
-                                        <img src="../images/@item.Image" alt="" class="pro-image-back" />
+                                        <img src="../../images/@item.Image" alt="" class="pro-image-front" />
+                                        <img src="../../images/@item.Image" alt="" class="pro-image-back" />
                                         <span class="product-new-top">New</span>
 
                                     </div>
@@ -41,14 +38,6 @@
                     </div>
                 </div>
             </div>
-            @Html.ActionLink("Show me more", "ShowMeMore", "Home", null, new { @class = "btn showme-more" })
         </div>
     </div>
 </div>
-
-@Html.Partial("_PreFooter")
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/catalog.js"></script>
-}

@@ -20,6 +20,7 @@ namespace ASF.UI.WbSite.Controllers
     using ASF.UI.WbSite.Constants;
     using ASF.UI.WbSite.Services;
     using ASF.UI.Process;
+    using System.Collections.Generic;
 
     public class HomeController : Controller
     {
@@ -62,7 +63,16 @@ namespace ASF.UI.WbSite.Controllers
         [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
-            ViewBag.products = productProcess.SelectList();
+             var listProd = productProcess.SelectList();
+             var listToShow = new List<ASF.Entities.Product>();
+
+
+             for (int i = 0; i < 12; i++ )
+             {
+                 listToShow.Add(listProd[i]);
+             }
+
+             ViewBag.products = listToShow;
             // ***** sender email credentials (gamil) *****/
             //var msg = new IdentityMessage
             //{
@@ -73,6 +83,13 @@ namespace ASF.UI.WbSite.Controllers
             //this.emailService.SendAsync(msg);
 
             return this.View(HomeControllerAction.Index);
+        }
+
+        public ActionResult ShowMeMore()
+        {
+            ViewBag.products = productProcess.SelectList();
+
+            return View();
         }
 
         [Route("about", Name = HomeControllerRoute.GetAbout)]

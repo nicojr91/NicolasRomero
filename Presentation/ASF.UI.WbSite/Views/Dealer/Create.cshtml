@@ -98,7 +98,7 @@
                             <div class="col-md-4">
                                 @*<div class="radio">*@
                                     <label>
-                                        <input type="radio" class="category" value="@category.Id" />@category.Name
+                                        <input type="radio" name="category" class="" value="@category.Id" />@category.Name
                                     </label>
                                 @*</div>*@
                             </div>
@@ -132,7 +132,7 @@
                             <div class="col-md-4">
                                 @*<div class="radio">*@
                                     <label>
-                                        <input type="radio" class="country" value="@country.Id" />@country.Name
+                                        <input type="radio" name="country" class="country" value="@country.Id" />@country.Name
                                     </label>
                                 @*</div>*@
                             </div>
@@ -164,15 +164,15 @@
         $(function () {
 
             $(".save", "#ModalCategories").on("click", function () {
-                $("#categoryId").val($(".category:checked").val());
-                $("#categoryText").val($(".category:checked").parent().text().trim());
+                $("#categoryId").val($("[name=category]:checked").val());
+                $("#categoryText").val($("[name=category]:checked").parent().text().trim());
 
                 $("#ModalCategories").modal('hide');
             });
 
             $(".save", "#ModalCountry").on("click", function () {
-                $("#countryId").val($(".country:checked").val());
-                $("#countryText").val($(".country:checked").parent().text().trim());
+                $("#countryId").val($("[name=country]:checked").val());
+                $("#countryText").val($("[name=country]:checked").parent().text().trim());
 
                 $("#ModalCountry").modal('hide');
             });

@@ -455,8 +455,6 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <None Include="Properties\PublishProfiles\Nicolas.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="images\descarga.jpg" />
-    <Content Include="images\rackspace_logo.gif" />
     <Content Include="images\template\1.png" />
     <Content Include="images\template\2.png" />
     <Content Include="images\template\ab_pic.jpg" />
@@ -717,6 +715,9 @@
     <Content Include="Views\Shared\_PreFooter.cshtml" />
     <Content Include="Views\Order\ThankYouPage.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Home\ShowMeMore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
