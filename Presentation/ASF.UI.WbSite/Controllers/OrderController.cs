@@ -15,6 +15,15 @@ namespace ASF.UI.WbSite.Controllers
         OrderProcess op = new OrderProcess();
         ProductProcess pp = new ProductProcess();
 
+        public enum State
+        {
+            Reviewed = 1,
+            Suspended = 2,
+            Closed = 3,
+            Cancelled = 4,
+            Approved = 5,
+        }
+
         //
         // GET: /Order/
         public ActionResult Index()
@@ -64,6 +73,7 @@ namespace ASF.UI.WbSite.Controllers
                 }
                 order.ItemCount = listItems.Count;
                 order.Details = listItems;
+                order.State = (int)State.Reviewed;
                 order = op.Add(order);
 
                 return Json(new { status = "ok", url = "/order/thankyou" });
@@ -80,6 +90,7 @@ namespace ASF.UI.WbSite.Controllers
         {
             var resp = op.Find(id);
             ViewBag.order = op.Find(id);
+            ViewBag.state = Enum.GetValues(typeof(State)).Cast<State>().ToList();
             Dictionary<int, string> mapIdNameProducts = new Dictionary<int, string>();
             foreach(ASF.Entities.OrderDetail detail in resp.Details)
             {
@@ -146,11 +157,7 @@ namespace ASF.UI.WbSite.Controllers
                 return View();
             }
         }
+
     }
 
-    public class PersonViewModel
-    {
-        public string FirstName { set; get; }
-        public string LastName { set; get; }
-    }
 }

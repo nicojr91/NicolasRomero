@@ -51,12 +51,11 @@
                         <label class="control-label col-md-2" for="state">State</label>
                         <div class="col-md-2">
                             <select id="state" name="States"><!-- class="form-control" -->
-                                <option selected hidden>Select an option</option>
-                                <option>Reviewed</option>
-                                <option>Closed</option>
-                                <option>Suspended</option>
-                                <option>Cancelled</option>
-                                <option>Approved</option>
+                                @{ int i = 1; }
+                                @foreach (var state in @ViewBag.state) {
+                                    <option value="@i" @(Model.State==i ? "selected" : "" ) >@state</option>
+                                    i++;
+                                }
                             </select>
                         </div>
                     </div>

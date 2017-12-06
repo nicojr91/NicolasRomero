@@ -146,7 +146,7 @@ namespace ASF.Data
                 ClientId = GetDataValue<int>(dr, "ClientId"),
                 OrderDate = GetDataValue<DateTime>(dr, "OrderDate"),
                 TotalPrice = GetDataValue<double>(dr, "TotalPrice"),
-                State = GetDataValue<string>(dr, "State"),
+                State = GetDataValue<int>(dr, "State"),
                 OrderNumber = GetDataValue<int>(dr, "OrderNumber"),
                 ItemCount = GetDataValue<int>(dr, "ItemCount"),
                 Rowid = GetDataValue<Guid>(dr, "Rowid"),
