@@ -38,6 +38,23 @@ namespace ASF.UI.WbSite.Controllers
         public ActionResult Details(int id)
         {
             var resp = op.Find(id);
+            ViewBag.order = resp;
+            var states = Enum.GetValues(typeof(State)).Cast<State>().ToList();
+            Dictionary<int, string> mapIdNameStates = new Dictionary<int, string>();
+            int i = 1;
+            foreach (State state in states)
+            {
+                mapIdNameStates.Add(i, state.ToString());
+                i++;
+            }
+            Dictionary<int, string> mapIdNameProducts = new Dictionary<int, string>();
+            foreach (ASF.Entities.OrderDetail detail in resp.Details)
+            {
+                var product = pp.Find(detail.ProductId);
+                mapIdNameProducts.Add(product.Id, product.Title);
+            }
+            ViewBag.states = mapIdNameStates;
+            ViewBag.products = mapIdNameProducts;
 
             return View(resp);
         }
@@ -110,7 +127,11 @@ namespace ASF.UI.WbSite.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var state = collection["State"];
+                var order = op.Find(id);
+                order.State = int.Parse(state);
+                order.ChangedOn = DateTime.Now;
+                op.Edit(order);
 
                 return RedirectToAction("Index");
             }

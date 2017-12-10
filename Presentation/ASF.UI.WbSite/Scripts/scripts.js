@@ -100,7 +100,7 @@ function storeCookie()
         });
         string = string.substring(0, string.length - 1);
 
-        $.cookie("newbuy", string, { expire: 30 });
+        $.cookie("newbuy", string, { expire: 30, path: '/' });
 
     }
 }

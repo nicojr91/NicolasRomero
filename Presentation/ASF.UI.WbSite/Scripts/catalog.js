@@ -5,7 +5,7 @@
         //guarda cookie con los datos del usuario*productID,cantidad-...
         if ($.cookie("newbuy") === undefined) {
             //crea cookie
-            $.cookie("newbuy", "1*"+productId+",1", { expire: 30 });
+            $.cookie("newbuy", "1*"+productId+",1", { expire: 30, path: '/' });
         } else {
             //agrega nuevo prod
             var string = $.cookie("newbuy");
@@ -19,11 +19,11 @@
                 }
                 var cookie = $.cookie("newbuy");
                 cookie += "-" + productId + ",1";
-                $.cookie("newbuy", cookie, { expire: 30 });
+                $.cookie("newbuy", cookie, { expire: 30, path: '/' });
             } else {
                 var cookie = $.cookie("newbuy");
                 cookie += "*" + productId + ",0";
-                $.cookie("newbuy", cookie, { expire: 30 });
+                $.cookie("newbuy", cookie, { expire: 30, path: '/' });
             }
             
         }

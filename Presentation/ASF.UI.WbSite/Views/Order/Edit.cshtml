@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-2" for="state">State</label>
                         <div class="col-md-2">
-                            <select id="state" name="States"><!-- class="form-control" -->
+                            <select id="state" name="State"><!-- class="form-control" -->
                                 @{ int i = 1; }
                                 @foreach (var state in @ViewBag.state) {
                                     <option value="@i" @(Model.State==i ? "selected" : "" ) >@state</option>
@@ -84,8 +84,9 @@
                     
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
+                        <div class="col-md-offset-5 col-md-4">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
                         </div>
                     </div>
                 </div>
@@ -93,8 +94,4 @@
         </div>
         
     </div>
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

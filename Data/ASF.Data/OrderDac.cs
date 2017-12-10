@@ -49,19 +49,13 @@ namespace ASF.Data
         /// <param name="order"></param>
         public void UpdateById(Order order)
         {
-            const string sqlStatement = "UPDATE [Order] " +
-                "SET [Name]=@Name, " +
-                    "[ChangedOn]=@ChangedOn, " +
-                    "[ChangedBy]=@ChangedBy " +
-                "WHERE [Id]=@Id ";
+            const string sqlStatement = "UPDATE [Order] SET [State] = @State, [ChangedOn] = @ChangedOn WHERE [Id]=@Id ";
 
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
-                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, order.CreatedOn);
-                db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, order.CreatedBy);
+                db.AddInParameter(cmd, "@State", DbType.Int32, order.State);
                 db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, order.ChangedOn);
-                db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, order.ChangedBy);
                 db.AddInParameter(cmd, "@Id", DbType.Int32, order.Id);
 
                 db.ExecuteNonQuery(cmd);
