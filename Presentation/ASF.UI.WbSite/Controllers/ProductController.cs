@@ -25,7 +25,9 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
         // GET: /Product/Product/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var resp = productProcess.Find(id);
+
+            return View(resp);
         }
 
         //
@@ -73,7 +75,12 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
         // GET: /Product/Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var resp = productProcess.Find(id);
+            ViewBag.product = resp;
+            ViewBag.dealer = dealerProcess.Find(resp.DealerId);
+            ViewBag.dealers = dealerProcess.SelectList();
+
+            return View(resp);
         }
 
         //
@@ -83,7 +90,22 @@ namespace ASF.UI.WbSite.Areas.Product.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var prod = productProcess.Find(id);
+                var file = Request.Files[0];
+                if (file.FileName != "")
+                {
+                    string imgName = System.IO.Path.GetFileName(file.FileName);
+                    string fisicalPath = Server.MapPath("~/images/" + imgName);
+                    file.SaveAs(fisicalPath);
+                    prod.Image = imgName;
+                }
+                prod.Title = collection["Title"];
+                prod.Description = collection["Description"];
+                prod.DealerId = Int32.Parse(collection["dealerId"]);
+                prod.Price = Double.Parse(collection["Price"]);
+                prod.ChangedOn = DateTime.Now;
+
+                productProcess.Edit(prod);
 
                 return RedirectToAction("Index");
             }

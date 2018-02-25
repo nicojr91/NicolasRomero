@@ -110,4 +110,5 @@ namespace ASF.UI.WbSite
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
 }

@@ -44,19 +44,17 @@ namespace ASF.Data
         /// <param name="product"></param>
         public void UpdateById(Product product)
         {
-            const string sqlStatement = "UPDATE dbo.Product SET [Title]=@Title, [Description]=@Description, [DealerId]=@DealerId, [Image]=@Image, [Price]=@Price, [QuantitySold]=@QuantitySold, [AvgStars]=@AvgStars, [Rowid]=@Rowid, [ChangedOn]=@ChangedOn, [ChangedBy]=@ChangedBy WHERE Id = @Id;";
+            const string sqlStatement = "UPDATE dbo.Product SET [Title]=@Title, [Description]=@Description, [DealerId]=@DealerId, [Image]=@Image, [Price]=@Price, [ChangedOn]=@ChangedOn, [ChangedBy]=@ChangedBy WHERE Id = @Id;";
 
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, product.Id);
                 db.AddInParameter(cmd, "@Title", DbType.String, product.Title);
                 db.AddInParameter(cmd, "@Description", DbType.String, product.Description);
                 db.AddInParameter(cmd, "@DealerId", DbType.Int32, product.DealerId);
-                db.AddInParameter(cmd, "@Image", DbType.Int32, product.Image);
-                db.AddInParameter(cmd, "@Price", DbType.String, product.Price);
-                db.AddInParameter(cmd, "@QuantitySold", DbType.Int32, product.QuantitySold);
-                db.AddInParameter(cmd, "@AvgStars", DbType.Int32, product.AvgStars);
-                db.AddInParameter(cmd, "@Rowid", DbType.Guid, product.Rowid);
+                db.AddInParameter(cmd, "@Image", DbType.String, product.Image);
+                db.AddInParameter(cmd, "@Price", DbType.Double, product.Price);
                 db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, product.ChangedOn);
                 db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, product.ChangedBy);
 

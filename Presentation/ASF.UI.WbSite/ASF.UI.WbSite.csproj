@@ -718,6 +718,9 @@
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Home\ShowMeMore.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Dealer\Edit.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

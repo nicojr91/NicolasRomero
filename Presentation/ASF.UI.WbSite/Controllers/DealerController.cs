@@ -44,7 +44,7 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Details/5
         public ActionResult Details(int id)
         {
-            var resp = categoryProcess.Find(id);
+            var resp = dealerProcess.Find(id);
 
             return View(resp);
         }
@@ -93,9 +93,9 @@ namespace ASF.UI.WbSite.Areas.Dealer.Controllers
         // GET: /Dealer/Dealer/Edit/5
         public ActionResult Edit(int id)
         {
-            var category = categoryProcess.Find(id);
+            var resp = dealerProcess.Find(id);
 
-            return View();
+            return View(resp);
         }
 
         //

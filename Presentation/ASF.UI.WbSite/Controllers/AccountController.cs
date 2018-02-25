@@ -386,8 +386,6 @@ namespace ASF.UI.WbSite.Controllers
             return View(model);
         }
 
-        
-
         //
         // POST: /Account/LogOff
         [HttpGet]

@@ -1,0 +1,133 @@
+﻿@model ASF.Entities.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Edit</h2>
+
+        @using (Html.BeginForm("Edit", "Product", System.Web.Mvc.FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Product</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title)
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description)
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DealerId, new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input id="dealerText" type="text" disabled class="form-control" value="@ViewBag.dealer.FirstName @ViewBag.dealer.LastName" placeholder="Dealer" />
+                            <input id="dealerId" type="hidden" name="dealerId" value="@ViewBag.dealer.Id" class="form-control" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#ModalDealer">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price)
+                        @Html.ValidationMessageFor(model => model.Price)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="image" value="@ViewBag.product.Image" class="form-control-file" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div class="modal fade" id="ModalDealer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Categories</h4>
+            </div>
+            <div class="modal-body">
+                @if (@ViewBag.dealers.Count > 0)
+                {
+                    <div class="row">
+                        @foreach (var dealer in @ViewBag.dealers)
+                        {
+                            <div class="col-md-4">
+                                @*<div class="radio">*@
+                                <label>
+                                    <input type="radio" class="dealer" value="@dealer.Id" />@dealer.FirstName @dealer.LastName
+                                </label>
+                                @*</div>*@
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div>There are no dealers.</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+
+            $(".save", "#ModalDealer").on("click", function () {
+                $("#dealerId").val($(".dealer:checked").val());
+                $("#dealerText").val($(".dealer:checked").parent().text().trim());
+
+                $("#ModalDealer").modal('hide');
+            });
+
+        });
+    </script>
+}
